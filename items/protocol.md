@@ -44,7 +44,7 @@ Discuss the in the group and find whether the unfinished task is necessary
 
 
 ## Protocol 2
-### Situation:
+### Situation
 The group has issues
 
 ### General Ideas for Conflict Resolution
@@ -54,7 +54,7 @@ The group has issues
 
 - Inform the team as soon as possible, via email or teams channel then plan a formal meeting to discuss the issue
 
-### Course of Action:
+### Course of Action
 Have a group meeting, record or take notes for the whole meeting:
 
 1. What’s the issue
@@ -69,7 +69,7 @@ Have a group meeting, record or take notes for the whole meeting:
 10. If not, should we discuss with tutor and B
 
 ## Protocol 3
-### Situation:
+### Situation
 A member gets sick
 
 ### General Ideas for Conflict Resolution
@@ -77,7 +77,7 @@ A member gets sick
 
 - If possible, provide a handover to the team, detailing where you were up to, what was left to do, any blockers, then the team may re-allocate work based on priority 
 
-### Course of Action:
+### Course of Action
 Determine how urgent the work is and how it will affect the deadlines. If urgent, remaining members split some of the work between them. 
 
 It is expected that at least one member will run into issues that prevent them from doing work during the course of this project. To mitigate this we could reduce how dependent each member’s tasks are on other members’ code. We should also expect that in many situations some members will have to do more work than others.
