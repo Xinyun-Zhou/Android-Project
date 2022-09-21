@@ -6,6 +6,7 @@ For university students in Canberra who have goods, items, or furniture they wou
 ## Product Vision
 
 ## Goals & Scope
+The developed [user stories](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/wikis/User-Stories) highlight the desired functionality from the perspective of the Buyer and the Seller.
 
 ## Tools and Techniques
 - Version control - git
