@@ -18,10 +18,10 @@
 ## Roles
 UID|Name|Role|
 -|-|-
-u|Fiona Chu|
-u|Lachlan Scott|
-u|Rita Zhou|
-u|Yuxuan Zhao|
+u|Fiona Chu|UX & UI designer, product owner
+u7577606|Lachlan Scott|scrum master, software developer
+u7326123|Rita Zhou|UX & UI designer, software tester
+u7366711|Yuxuan Zhao|software developer, software tester
 
 - product owner
 - project manager
