@@ -1,10 +1,12 @@
 # Project Plan
 
 ## Overview
+For university students in Canberra who have goods, items, or furniture they would like to sell onwards to other students. The Purple Switch is a marketplace platform that enables university students seeking to recycle or upcycle their pre-loved possessions to fellow students in the community. Unlike competitors, Purple Switch is aimed solely at the user’s university to build and strengthen a community of student recyclers. Our product is locally instantiable by any innovative students in their respective areas.
 
 ## Product Vision
 
 ## Goals & Scope
+The developed [user stories](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/wikis/User-Stories) highlight the desired functionality from the perspective of the Buyer and the Seller.
 
 ## Tools and Techniques
 - Version control - git
