@@ -15,7 +15,7 @@ public abstract class UserState {
         this.userSession = userSession;
     }
 
-    public abstract int login(String username, String password);
+    public abstract User login(String username, String password);
 
     public abstract boolean logout();
 }

@@ -15,8 +15,8 @@ public class SessionState extends UserState {
     }
 
     @Override
-    public int login(String username, String password) {
-        return -1;
+    public User login(String username, String password) {
+        return null;
     }
 
     @Override

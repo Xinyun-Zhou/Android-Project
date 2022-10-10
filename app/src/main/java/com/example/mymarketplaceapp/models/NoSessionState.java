@@ -18,18 +18,18 @@ public class NoSessionState extends UserState {
      *
      * @param username
      * @param password
-     * @return uid ( -1 == false )
+     * @return User
      */
     @Override
-    public int login(String username, String password) {
+    public User login(String username, String password) {
         UserDao userDao = UserDao.getInstance();
         List<User> userList = userDao.getAllUsers();
 
         for (User user : userList)
             if (user.getUsername().equals(username) && user.getPassword().equals(password))
-                return user.getUid();
+                return user;
 
-        return -1;
+        return null;
     }
 
     @Override

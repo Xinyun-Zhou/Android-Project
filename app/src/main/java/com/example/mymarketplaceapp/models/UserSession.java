@@ -10,12 +10,12 @@ import android.os.Parcelable;
  */
 public class UserSession implements Parcelable {
     UserState userState;
-    int uid;
+    User user;
 
     public UserSession() {
         UserState defaultState = new NoSessionState(this);
         changeState(defaultState);
-        uid = -1;
+        user = null;
     }
 
     public void changeState(UserState state) {
@@ -23,15 +23,19 @@ public class UserSession implements Parcelable {
     }
 
     public boolean login(String username, String password) {
-        uid = userState.login(username, password);
-        if(uid!=-1)
+        user = userState.login(username, password);
+        if (user != null)
             changeState(new SessionState(this));
 
-        return uid != -1 ? true : false;
+        return user != null ? true : false;
     }
 
     public UserState getUserState() {
         return userState;
+    }
+
+    public User getUser() {
+        return user;
     }
 
     protected UserSession(Parcel in) {

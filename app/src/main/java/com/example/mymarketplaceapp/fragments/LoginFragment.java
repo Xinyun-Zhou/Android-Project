@@ -30,7 +30,6 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_login, container, false);
     }
@@ -58,7 +57,11 @@ public class LoginFragment extends Fragment {
         @Override
         public void onClick(View v) {
             if (userSession.login(getUsername(), getPassword())) {
-                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer, new PersonFragment()).commit();
+                PersonFragment personFragment = new PersonFragment();
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("userSession", userSession);
+                personFragment.setArguments(bundle);
+                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer, personFragment).commit();
             } else {
                 TextInputLayout textInputLayout = (TextInputLayout) view.findViewById(R.id.et_login_password);
                 textInputLayout.setError("Incorrect username or password");

@@ -1,5 +1,10 @@
 [
   {
+    "uid": 0,
+    "username": "admin",
+    "password": "admin"
+  },
+  {
     "uid": 1,
     "username": "comp2100@anu.au",
     "password": "comp2100"
