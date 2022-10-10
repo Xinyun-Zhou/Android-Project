@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,7 +58,7 @@ public class LoginFragment extends Fragment {
         @Override
         public void onClick(View v) {
             if (userSession.login(getUsername(), getPassword())) {
-                return;
+                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer, new PersonFragment()).commit();
             } else {
                 TextInputLayout textInputLayout = (TextInputLayout) view.findViewById(R.id.et_login_password);
                 textInputLayout.setError("Incorrect username or password");

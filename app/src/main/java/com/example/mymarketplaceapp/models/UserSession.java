@@ -24,8 +24,14 @@ public class UserSession implements Parcelable {
 
     public boolean login(String username, String password) {
         uid = userState.login(username, password);
+        if(uid!=-1)
+            changeState(new SessionState(this));
 
         return uid != -1 ? true : false;
+    }
+
+    public UserState getUserState() {
+        return userState;
     }
 
     protected UserSession(Parcel in) {

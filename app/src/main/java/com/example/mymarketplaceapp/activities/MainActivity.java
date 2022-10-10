@@ -9,16 +9,14 @@ import android.view.MenuItem;
 
 import com.example.mymarketplaceapp.R;
 import com.example.mymarketplaceapp.models.*;
-import com.example.mymarketplaceapp.fragments.CartFragment;
-import com.example.mymarketplaceapp.fragments.HomeFragment;
-import com.example.mymarketplaceapp.fragments.MenuFragment;
-import com.example.mymarketplaceapp.fragments.LoginFragment;
+import com.example.mymarketplaceapp.fragments.*;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
     private NavigationBarView navigationBarView;
     private Fragment homeFragment = new HomeFragment();
     private Fragment loginFragment = new LoginFragment();
+    private Fragment personFragment = new PersonFragment();
     private Fragment cartFragment = new CartFragment();
     private Fragment menuFragment = new MenuFragment();
     private UserSession userSession;
@@ -66,7 +64,10 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, homeFragment).commit();
                     return true;
                 case R.id.person:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, loginFragment).commit();
+                    if(userSession.getUserState() instanceof NoSessionState)
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, loginFragment).commit();
+                    else
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, personFragment).commit();
                     return true;
                 case R.id.cart:
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, cartFragment).commit();
