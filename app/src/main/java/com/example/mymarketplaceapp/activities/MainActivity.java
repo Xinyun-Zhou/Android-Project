@@ -11,6 +11,7 @@ import com.example.mymarketplaceapp.R;
 import com.example.mymarketplaceapp.models.*;
 import com.example.mymarketplaceapp.fragments.*;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.FirebaseApp;
 
 public class MainActivity extends AppCompatActivity {
     private NavigationBarView navigationBarView;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private Fragment personFragment = new PersonFragment();
     private Fragment cartFragment = new CartFragment();
     private Fragment menuFragment = new MenuFragment();
+    private Fragment cartLoginFragment = new LoginNotificationFragment();
     private UserSession userSession;
 
 
@@ -26,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        FirebaseApp.initializeApp(getBaseContext());
 
         initView(savedInstanceState);
         userSession = new UserSession();
@@ -56,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
          * Switch fragments
          *
          * @param item
-         * @author u7366711 Yuxuan Zhao
+         * @author u7366711 Yuxuan Zhao, u7326123 Rita Zhou
          */
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -71,7 +75,10 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, personFragment).commit();
                     return true;
                 case R.id.cart:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, cartFragment).commit();
+                    if(userSession.getUserState() instanceof NoSessionState)
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, cartLoginFragment).commit();
+                    else
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, cartFragment).commit();
                     return true;
                 case R.id.menu:
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, menuFragment).commit();

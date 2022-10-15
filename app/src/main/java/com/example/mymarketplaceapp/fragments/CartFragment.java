@@ -2,60 +2,28 @@ package com.example.mymarketplaceapp.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.mymarketplaceapp.R;
+import com.example.mymarketplaceapp.models.UserSession;
+import com.google.firebase.FirebaseApp;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link CartFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * Cart Fragment
+ * Shows up current user's cart
+ * The user can buy items in the cart by click the Next button
+ * @author Rita Zhou
  */
 public class CartFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public CartFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CartFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CartFragment newInstance(String param1, String param2) {
-        CartFragment fragment = new CartFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private UserSession userSession;
+    View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,4 +31,34 @@ public class CartFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_cart, container, false);
     }
+
+    /**
+     * Get userSession from MainActivity and set listener
+     *
+     * @param view
+     * @param savedInstanceState
+     */
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        this.view = view;
+
+        Bundle bundle = getArguments();
+        userSession = bundle.getParcelable("userSession");
+
+        Button cartNext = (Button) view.findViewById(R.id.bt_cart_next);
+        cartNext.setOnClickListener(cartNextOnClickListener);
+    }
+
+    private View.OnClickListener cartNextOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            LoginFragment loginFragment = new LoginFragment();
+            Bundle bundle = new Bundle();
+            bundle.putParcelable("userSession", userSession);
+            loginFragment.setArguments(bundle);
+            getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer, loginFragment).commit();
+        }
+    };
 }
