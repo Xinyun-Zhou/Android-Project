@@ -2,16 +2,25 @@
   {
     "uid": 0,
     "username": "admin",
-    "password": "admin"
+    "password": "admin",
+    "postcode": "2601",
+    "address": "ANU School of Computing, 108 North Rd, Acton ACT Australia",
+    "phone": "261255111"
   },
   {
     "uid": 1,
     "username": "comp2100@anu.au",
-    "password": "comp2100"
+    "password": "comp2100",
+    "postcode": "2601",
+    "address": "Hanna Neumann Building (#145), The Australian National University, Science Rd, Acton ACT Australia",
+    "phone": "123456789"
   },
   {
     "uid": 2,
     "username": "comp6442@anu.au",
-    "password": "comp6442"
+    "password": "comp6442",
+    "postcode": "2601",
+    "address": "Chifley Library, JB Chifley Building, (Building, 15 Joplin Ln, Acton ACT Australia",
+    "phone": "261259577"
   }
 ]

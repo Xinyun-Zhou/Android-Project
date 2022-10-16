@@ -1,0 +1,56 @@
+[
+  {
+    "category": "ELECTRONICS",
+    "description": "6.5 x 5.0 x 3.0 cm; BassUp mode to intesify bass in real-time.",
+    "id": 0,
+    "name": "Earbuds",
+    "price": 81,
+    "quantity": 1,
+    "sellerUid": 0
+  },
+  {
+    "category": "ELECTRONICS",
+    "description": "8.0 x 8.0 x 5.0 cm; Bluetooth and long-distance connection; Lasts 6 hours for normal use and charging bin lasts 24 hours for 3 charges.",
+    "id": 1,
+    "name": "Earbuds",
+    "price": 37,
+    "quantity": 4,
+    "sellerUid": 0
+  },
+  {
+    "category": "ELECTRONICS",
+    "description": "Up to 6 hours music per charge, with up to 20 hours including the case; 5.5 x 9 x 9 cm; USB Type-C charging；Noise cancelling and natural ambient sound.",
+    "id ": 2,
+    "name": "Earbuds",
+    "price": 200,
+    "quantity": 1,
+    "sellerUid": 1
+  },
+  {
+    "category": "FASHION",
+    "description": "White; Certified UV protection; Women use.",
+    "id": 3,
+    "name": "Sun Hat",
+    "price": 12,
+    "quantity": 21,
+    "sellerUid": 2
+  },
+  {
+    "category": "FASHION",
+    "description": "Black; UPF 50 + UV Protection; Children use.",
+    "id": 4,
+    "name": "Sun Hat",
+    "price": 20,
+    "quantity": 0,
+    "sellerUid": 2
+  },
+  {
+    "category": "BOOKS",
+    "description": "Trade Paperback; It looks new but has been read.",
+    "id": 5,
+    "name": "Book: Introduction to Algorithms by Thomas H. Cormen 3rd edit",
+    "price": 40,
+    "quantity": 1,
+    "sellerUid": 2
+  }
+]

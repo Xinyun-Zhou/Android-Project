@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "394474169331",
+    "firebase_url": "https://my-marketplace-app-default-rtdb.firebaseio.com",
+    "project_id": "my-marketplace-app",
+    "storage_bucket": "my-marketplace-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394474169331:android:ac3a36049241adaab8a886",
+        "android_client_info": {
+          "package_name": "com.example.mymarketplaceapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394474169331-6ai4pktmh6t2cls96t8rnf5vss4pa1d4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAj1pC8IPN0NcuJ6TZDDPzYji7ea5BNMU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394474169331-6ai4pktmh6t2cls96t8rnf5vss4pa1d4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         bundle.putParcelable("userSession", userSession);
         loginFragment.setArguments(bundle);
         personFragment.setArguments(bundle);
+        cartFragment.setArguments(bundle);
     }
 
     /**

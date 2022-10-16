@@ -49,4 +49,13 @@ public class ItemDao {
 
         return itemList;
     }
+
+    public List<Item> getCategoryItems(Category category) {
+        List<Item> itemList = getAllItems();
+        for(Item item : itemList)
+            if(!item.getCategory().equals(category))
+                itemList.remove(item);
+
+        return itemList;
+    }
 }
