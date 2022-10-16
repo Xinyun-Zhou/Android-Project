@@ -3,6 +3,7 @@ package com.example.mymarketplaceapp.models;
 import android.content.Context;
 
 import com.example.mymarketplaceapp.Utils.ContextUtil;
+import com.example.mymarketplaceapp.utils.AVLTree;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -50,12 +51,43 @@ public class ItemDao {
         return itemList;
     }
 
-    public List<Item> getCategoryItems(Category category) {
-        List<Item> itemList = getAllItems();
-        for(Item item : itemList)
-            if(!item.getCategory().equals(category))
-                itemList.remove(item);
+    public AVLTree<Item> getAllItemsAVL() {
+        Context context = ContextUtil.getInstance();
+        Item[] itemArray;
+        AVLTree<Item> itemAVLTree;
 
-        return itemList;
+        InputStream inputStream;
+
+        try {
+            inputStream = context.getAssets().open("item.json");
+
+            Gson gson = new Gson();
+            itemArray = gson.fromJson(new InputStreamReader(inputStream), Item[].class);
+
+            if (itemArray.length > 0) {
+                itemAVLTree = new AVLTree<>(itemArray[0]);
+
+                for (int i = 1; i < itemArray.length; i++)
+                    itemAVLTree = itemAVLTree.insert(itemArray[i]);
+
+                return itemAVLTree;
+            }
+
+        } catch (IOException e) {
+
+        }
+
+        return null;
+    }
+
+    public List<Item> getCategoryItems(Category category) {
+        List<Item> fullItemList = getAllItems();
+        List<Item> selectedItemList = new ArrayList<>();
+
+        for (Item item : fullItemList)
+            if (item.getCategory().equals(category))
+                selectedItemList.add(item);
+
+        return selectedItemList;
     }
 }

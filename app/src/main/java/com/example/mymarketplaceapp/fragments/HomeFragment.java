@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.mymarketplaceapp.R;
+import com.example.mymarketplaceapp.models.Category;
 
 /**
  *  Home Fragment
@@ -58,27 +59,37 @@ public class HomeFragment extends Fragment {
     private View.OnClickListener categoryButtonOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            Bundle bundle = new Bundle();
             switch (v.getId()) {
                 case R.id.bt_home_category_0:
+                    bundle.putInt("Category", 0);
                     break;
                 case R.id.bt_home_category_1:
+                    bundle.putInt("Category", 1);
                     break;
                 case R.id.bt_home_category_2:
+                    bundle.putInt("Category", 2);
                     break;
                 case R.id.bt_home_category_3:
+                    bundle.putInt("Category", 3);
                     break;
                 case R.id.bt_home_category_4:
+                    bundle.putInt("Category", 4);
                     break;
                 case R.id.bt_home_category_5:
+                    bundle.putInt("Category", 5);
                     break;
                 case R.id.bt_home_category_6:
+                    bundle.putInt("Category", 6);
                     break;
                 case R.id.bt_home_category_7:
-                    ItemListFragment itemListFragment = new ItemListFragment();
-                    getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer, itemListFragment).commit();
+                    bundle.putInt("Category", 7);
                 default:
                     break;
             }
+            ItemListFragment itemListFragment = new ItemListFragment();
+            itemListFragment.setArguments(bundle);
+            getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer, itemListFragment).commit();
         }
     };
 }

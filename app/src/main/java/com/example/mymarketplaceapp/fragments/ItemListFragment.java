@@ -14,7 +14,10 @@ import android.view.ViewGroup;
 
 import com.example.mymarketplaceapp.R;
 import com.example.mymarketplaceapp.adapters.RecyclerViewAdapter;
+import com.example.mymarketplaceapp.models.Category;
 import com.example.mymarketplaceapp.models.ItemDao;
+
+import java.util.Locale;
 
 /**
  * Item List Fragment
@@ -34,10 +37,17 @@ public class ItemListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        Bundle bundle = getArguments();
+        int categoryIndex = bundle.getInt("Category");
+
         ItemDao itemDao = ItemDao.getInstance();
 
         RecyclerView recyclerView = view.findViewById(R.id.rv_item_list);
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this.getContext(), itemDao.getAllItems());
+
+        // AVL tree test
+        //RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this.getContext(), itemDao.getAllItemsAVL().inOrder());
+
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this.getContext(), itemDao.getCategoryItems(Category.values()[categoryIndex]));
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
     }
