@@ -52,5 +52,50 @@
     "price": 40,
     "quantity": 1,
     "sellerUid": 2
+  },
+  {
+    "category": "FOOD",
+    "description": "Made with 50% whole grain wheat and corn",
+    "id": 6,
+    "name": "NESTLE MILO Cereal, Whole Grain, Energy & Fibre, 700g",
+    "price": 4,
+    "quantity": 3,
+    "sellerUid": 0
+  },
+  {
+    "category": "HEALTH",
+    "description": "Bone & Teeth Health: Supports the development and maintenance of healthy bones and teeth",
+    "id": 7,
+    "name": "Swisse Ultiboost Vitamin D, 400 Capsules",
+    "price": 15.5,
+    "quantity": 2,
+    "sellerUid": 0
+  },
+  {
+    "category": "BEAUTY",
+    "description": "Dramatically improves skin's texture for radiant youthful even-toned skin",
+    "id": 8,
+    "name": "Paula's Choice Skin Perfecting 2% BHA",
+    "price": 45,
+    "quantity": 1,
+    "sellerUid": 2
+  },
+  {
+    "category": "HOME",
+    "description": "The only air fryer with Fat Removal technology that separates and captures excess fat",
+    "id": 9,
+    "name": "Philips Premium Collection Air Fryer",
+    "price": 471,
+    "quantity": 1,
+    "sellerUid": 0
+  },
+  {
+    "category": "OTHERS",
+    "description": "Inflatable battery life increased by about 45.4%, Can replace about 8 tires",
+    "id": 10,
+    "name": "Xiaomi Mi Portable Air Pump 1S",
+    "price": 75,
+    "quantity": 1,
+    "sellerUid": 1
   }
 ]

@@ -16,6 +16,12 @@ import com.example.mymarketplaceapp.models.Item;
 
 import java.util.List;
 
+
+/**
+ * Recycler View Adapter
+ *
+ * @author u7366711 Yuxuan Zhao
+ */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
     Context context;
     List<Item> itemList;
@@ -37,7 +43,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.MyViewHolder holder, int position) {
         holder.nameTextView.setText(itemList.get(position).getName());
-        holder.priceTextView.setText("$" + itemList.get(position).getPrice());
+        holder.priceTextView.setText("$ " + String.format("%.2f", itemList.get(position).getPrice()));
     }
 
     @Override
@@ -46,7 +52,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-
         ImageView imageView;
         TextView nameTextView, priceTextView;
 
