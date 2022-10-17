@@ -7,4 +7,10 @@
     <string name="notification_fragment_login_message">You are not login! \nPlease login first!</string>
     <string name="notification_fragment_login">LOGIN</string>
     <string name="person_fragment_log_out">LOGOUT</string>
+    <string name="pay_fragment_txt">Please fill out your personal detail</string>
+    <string name="pay_fragment_name">YOUR NAME:</string>
+    <string name="pay_fragment_address">YOUR ADDRESS:</string>
+    <string name="pay_fragment_postcode">YOUR POSTCODE:</string>
+    <string name="pay_fragment_phone">YOUR PHONE NUMBER</string>
+    <string name="pay_fragment_pay">BUY NOW!</string>
 </resources>

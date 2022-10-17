@@ -10,16 +10,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mymarketplaceapp.R;
 import com.example.mymarketplaceapp.models.UserSession;
-import com.google.android.material.imageview.ShapeableImageView;
-import com.google.android.material.textfield.TextInputLayout;
 
 
+/**
+ * The Person Fragment
+ * Show personal detail
+ * @author u7326123 Rita Zhou
+ */
 public class PersonFragment extends Fragment {
     private UserSession userSession;
     View view;
@@ -75,6 +77,7 @@ public class PersonFragment extends Fragment {
                 LoginFragment loginFragment = new LoginFragment();
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("userSession", userSession);
+                loginFragment.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer, loginFragment).commit();
             } else {
                 Toast.makeText(view.getContext(), "This is error message", Toast.LENGTH_LONG).show();
