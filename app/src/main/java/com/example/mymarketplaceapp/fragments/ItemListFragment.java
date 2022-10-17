@@ -47,7 +47,7 @@ public class ItemListFragment extends Fragment {
         // AVL tree test
         //RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this.getContext(), itemDao.getAllItemsAVL().inOrder());
 
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this.getContext(), itemDao.getCategoryItems(Category.values()[categoryIndex]));
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this.getContext(), itemDao.getCategoryItems(Category.values()[categoryIndex]), false);
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
     }

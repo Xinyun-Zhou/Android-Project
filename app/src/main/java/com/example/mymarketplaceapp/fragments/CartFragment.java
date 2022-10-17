@@ -69,6 +69,7 @@ public class CartFragment extends Fragment {
 
         List<Item> itemList = new ArrayList<>();
         List<CartItem> itemRequired = new ArrayList<>();
+        List<Item> itemListToShow = new ArrayList<>();
 
         Button cartNext = (Button) view.findViewById(R.id.bt_cart_next);
 
@@ -108,13 +109,15 @@ public class CartFragment extends Fragment {
                                                 for (int i = 0; i < itemRequired.size(); i++) {
                                                     if (currentItemId == itemRequired.get(i).getCartItemId()) {
                                                         String itemName = currentItem.child("name").getValue().toString();
-                                                        int itemPrice = Integer.parseInt(currentItem.child("price").getValue().toString());
+                                                        double itemPrice = Integer.parseInt(currentItem.child("price").getValue().toString());
                                                         int itemQuantity = Integer.parseInt(currentItem.child("quantity").getValue().toString());
                                                         int itemSellerUid = Integer.parseInt(currentItem.child("sellerUid").getValue().toString());
                                                         Category itemCategory = Category.valueOf(currentItem.child("category").getValue().toString());
                                                         String itemDescription = currentItem.child("description").getValue().toString();
                                                         Item newItem = new Item(currentItemId, itemName, itemPrice, itemQuantity, itemSellerUid, itemCategory, itemDescription);
                                                         itemList.add(newItem);
+                                                        Item showItem = new Item(currentItemId, itemName, itemPrice, itemRequired.get(i).getCartItemQuantity(), itemSellerUid, itemCategory, itemDescription);
+                                                        itemListToShow.add(showItem);
                                                     }
                                                 }
                                             }
@@ -144,7 +147,7 @@ public class CartFragment extends Fragment {
                                         totalText.setText("TOTAL : $" + totalAmount);
 
                                         RecyclerView recyclerView = view.findViewById(R.id.rt_cart_list);
-                                        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(view.getContext(), itemList);
+                                        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(view.getContext(), itemListToShow, true);
                                         recyclerView.setAdapter(recyclerViewAdapter);
                                         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
                                     }

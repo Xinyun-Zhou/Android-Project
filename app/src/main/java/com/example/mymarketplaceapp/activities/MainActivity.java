@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Fragment loginFragment = new LoginFragment();
     private Fragment personFragment = new PersonFragment();
     private Fragment cartFragment = new CartFragment();
-    private Fragment menuFragment = new MenuFragment();
+    private Fragment sellingFragment = new SellingFragment();
     private Fragment loginNotificationFragment = new LoginNotificationFragment();
     private UserSession userSession;
 
@@ -83,7 +83,10 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, cartFragment).commit();
                     return true;
                 case R.id.menu:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, menuFragment).commit();
+                    if (userSession.getUserState() instanceof NoSessionState)
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, loginNotificationFragment).commit();
+                    else
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, sellingFragment).commit();
                     return true;
                 default:
                     return false;

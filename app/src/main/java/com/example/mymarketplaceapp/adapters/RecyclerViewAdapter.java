@@ -25,10 +25,12 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
     Context context;
     List<Item> itemList;
+    boolean hasQuantity;
 
-    public RecyclerViewAdapter(Context context, List<Item> itemList) {
+    public RecyclerViewAdapter(Context context, List<Item> itemList, boolean hasQuantity) {
         this.context = context;
         this.itemList = itemList;
+        this.hasQuantity = hasQuantity;
     }
 
     @NonNull
@@ -44,6 +46,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.MyViewHolder holder, int position) {
         holder.nameTextView.setText(itemList.get(position).getName());
         holder.priceTextView.setText("$ " + String.format("%.2f", itemList.get(position).getPrice()));
+        if (hasQuantity)
+            holder.quantityTextView.setText("Quantity: " + itemList.get(position).getQuantity());
     }
 
     @Override
@@ -53,7 +57,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
-        TextView nameTextView, priceTextView;
+        TextView nameTextView, priceTextView, quantityTextView;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -61,6 +65,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             imageView = (ImageView) itemView.findViewById(R.id.iv_rvr);
             nameTextView = (TextView) itemView.findViewById(R.id.tv_rvr_name);
             priceTextView = (TextView) itemView.findViewById(R.id.tv_rvr_price);
+            quantityTextView = (TextView) itemView.findViewById(R.id.tv_rvr_quantity);
         }
     }
 }
