@@ -5,7 +5,17 @@
     "password": "admin",
     "postcode": "2601",
     "address": "ANU School of Computing, 108 North Rd, Acton ACT Australia",
-    "phone": "261255111"
+    "phone": "261255111",
+    "cart": [
+      {
+        "id": 3,
+        "quantity": 15
+      },
+      {
+        "id": 5,
+        "quantity": 1
+      }
+    ]
   },
   {
     "uid": 1,
@@ -13,7 +23,13 @@
     "password": "comp2100",
     "postcode": "2601",
     "address": "Hanna Neumann Building (#145), The Australian National University, Science Rd, Acton ACT Australia",
-    "phone": "123456789"
+    "phone": "123456789",
+    "cart": [
+      {
+        "id": 1,
+        "quantity": 3
+      }
+    ]
   },
   {
     "uid": 2,

@@ -21,6 +21,6 @@ public class SessionState extends UserState {
 
     @Override
     public boolean logout() {
-        return false;
+        return true;
     }
 }

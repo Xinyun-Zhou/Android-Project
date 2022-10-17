@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private Fragment personFragment = new PersonFragment();
     private Fragment cartFragment = new CartFragment();
     private Fragment menuFragment = new MenuFragment();
-    private Fragment cartLoginFragment = new LoginNotificationFragment();
+    private Fragment loginNotificationFragment = new LoginNotificationFragment();
     private UserSession userSession;
 
 
@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         loginFragment.setArguments(bundle);
         personFragment.setArguments(bundle);
         cartFragment.setArguments(bundle);
+        loginNotificationFragment.setArguments(bundle);
     }
 
     /**
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.cart:
                     if(userSession.getUserState() instanceof NoSessionState)
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, cartLoginFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, loginNotificationFragment).commit();
                     else
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, cartFragment).commit();
                     return true;

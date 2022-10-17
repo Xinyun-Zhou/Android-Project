@@ -30,6 +30,14 @@ public class UserSession implements Parcelable {
         return user != null ? true : false;
     }
 
+    public boolean logout(){
+        if (userState.logout()) {
+            user = new User();
+            changeState(new NoSessionState(this));
+        }
+        return true;
+    }
+
     public UserState getUserState() {
         return userState;
     }

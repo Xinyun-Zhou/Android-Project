@@ -26,7 +26,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/search_from_cart"
+            android:hint="@string/cart_fragment_search_from_cart"
             android:textColorHint="#546E7A" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -35,15 +35,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/cart_total"
+        android:text="@string/cart_fragment_cart_total"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lt_cart_list" />
+        app:layout_constraintTop_toBottomOf="@+id/rt_cart_list" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lt_cart_list"
+        android:id="@+id/rt_cart_list"
         android:layout_width="410dp"
         android:layout_height="383dp"
         android:layout_marginTop="4dp"
@@ -56,7 +56,7 @@
         android:id="@+id/bt_cart_next"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/next"
+        android:text="@string/cart_fragment_next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_cart_total" />

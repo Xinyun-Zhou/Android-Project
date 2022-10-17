@@ -1,9 +1,10 @@
 <resources>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="search_from_cart">Search From Chart</string>
-    <string name="cart_total">TOTAL: $</string>
-    <string name="next">NEXT</string>
-    <string name="cart_login_message">You are not login!</string>
-    <string name="login">LOGIN</string>
+    <string name="cart_fragment_search_from_cart">Search From Chart</string>
+    <string name="cart_fragment_cart_total">TOTAL: $</string>
+    <string name="cart_fragment_next">NEXT</string>
+    <string name="notification_fragment_login_message">You are not login! \nPlease login first!</string>
+    <string name="notification_fragment_login">LOGIN</string>
+    <string name="person_fragment_log_out">LOGOUT</string>
 </resources>
