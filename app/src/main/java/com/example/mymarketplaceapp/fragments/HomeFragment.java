@@ -6,16 +6,24 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.mymarketplaceapp.R;
 import com.example.mymarketplaceapp.models.Category;
+import com.example.mymarketplaceapp.utils.Parser;
+import com.example.mymarketplaceapp.utils.Query;
+import com.example.mymarketplaceapp.utils.Tokenizer;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 /**
- *  Home Fragment
+ * Home Fragment
  *
  * @author u7366711 Yuxuan Zhao
  */
@@ -54,6 +62,9 @@ public class HomeFragment extends Fragment {
         categoryButton6.setOnClickListener(categoryButtonOnClickListener);
         Button categoryButton7 = (Button) view.findViewById(R.id.bt_home_category_7);
         categoryButton7.setOnClickListener(categoryButtonOnClickListener);
+
+        TextInputEditText textInputEditText = (TextInputEditText) view.findViewById(R.id.et_home_search);
+        textInputEditText.setOnEditorActionListener(searchOnEditorActionListener);
     }
 
     private View.OnClickListener categoryButtonOnClickListener = new View.OnClickListener() {
@@ -92,4 +103,28 @@ public class HomeFragment extends Fragment {
             getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer, itemListFragment).commit();
         }
     };
+
+    private TextView.OnEditorActionListener searchOnEditorActionListener = new TextView.OnEditorActionListener() {
+        @Override
+        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                Query query = parseQuery(v.getText().toString());
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("Query", query);
+                ItemListFragment itemListFragment = new ItemListFragment();
+                itemListFragment.setArguments(bundle);
+                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer, itemListFragment).commit();
+
+                return true;
+            }
+
+            return false;
+        }
+    };
+
+    private Query parseQuery(String queryString) {
+        Tokenizer tokenizer = new Tokenizer(queryString);
+
+        return new Parser(tokenizer).parseQuery();
+    }
 }

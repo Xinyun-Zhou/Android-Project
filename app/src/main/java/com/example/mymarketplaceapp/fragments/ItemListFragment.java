@@ -15,8 +15,11 @@ import android.view.ViewGroup;
 import com.example.mymarketplaceapp.R;
 import com.example.mymarketplaceapp.adapters.RecyclerViewAdapter;
 import com.example.mymarketplaceapp.models.Category;
+import com.example.mymarketplaceapp.models.Item;
 import com.example.mymarketplaceapp.models.ItemDao;
+import com.example.mymarketplaceapp.utils.Query;
 
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -39,15 +42,18 @@ public class ItemListFragment extends Fragment {
 
         Bundle bundle = getArguments();
         int categoryIndex = bundle.getInt("Category");
+        Query query = bundle.getParcelable("Query");
 
         ItemDao itemDao = ItemDao.getInstance();
+
+        List<Item> itemList = query != null ? itemDao.search(query) : itemDao.getCategoryItems(Category.values()[categoryIndex]);
 
         RecyclerView recyclerView = view.findViewById(R.id.rv_item_list);
 
         // AVL tree test
         //RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this.getContext(), itemDao.getAllItemsAVL().inOrder());
 
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this.getContext(), itemDao.getCategoryItems(Category.values()[categoryIndex]), false);
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this.getContext(), itemList, false);
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
     }

@@ -38,13 +38,13 @@ public class Tokenizer {
                     tokenType = Token.Type.CATEGORY;
                     break;
                 case '@':
-                    tokenType = Token.Type.USER_NAME;
+                    tokenType = Token.Type.USERNAME;
                     break;
                 case '>':
-                    tokenType = Token.Type.PRICE_GREATER;
+                    tokenType = Token.Type.MIN_PRICE;
                     break;
                 case '<':
-                    tokenType = Token.Type.PRICE_LESS;
+                    tokenType = Token.Type.MAX_PRICE;
                     break;
                 case '^':
                     tokenType = Token.Type.DESCRIPTION;
