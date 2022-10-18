@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @author u7366711 Yuxuan Zhao
  */
-public class User {
+public class User implements Comparable<User> {
     private int uid;
     private String username;
     private String password;
@@ -16,6 +16,10 @@ public class User {
     private String address;
     private int phone;
     private List<CartItem> cart;
+
+    public User(String username){
+        this.username=username;
+    }
 
     public User(int uid, String username, String password, String postcode, String address, int phone, List<CartItem> cart) {
         this.uid = uid;
@@ -54,7 +58,19 @@ public class User {
         return phone;
     }
 
-    public List<CartItem> getCart(){
+    public List<CartItem> getCart() {
         return cart;
+    }
+
+    @Override
+    public int compareTo(User o) {
+        int strDifference = this.username.compareTo(o.username);
+        if (strDifference < 0) {
+            return -1;
+        } else if (strDifference > 0) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }
