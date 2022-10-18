@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Token {
 
-    public enum Type {ITEM_NAME, CATEGORY, USER_NAME, PRICE_GREATER, PRICE_LESS, DESCRIPTION}
+    public enum Type {ITEM_NAME, CATEGORY, USER_NAME, MIN_PRICE, MAX_PRICE, DESCRIPTION}
 
     public static class IllegalTokenException extends IllegalArgumentException {
         public IllegalTokenException(String errorMessage) {

@@ -36,7 +36,7 @@ public class TokenizerTest extends TestCase {
     public void testPriceGreaterToken() {
         tokenizer = new Tokenizer(">1024 <2048 ^bullet-proof");
 
-        Assert.assertEquals("wrong token type", Token.Type.PRICE_GREATER, tokenizer.current().getType());
+        Assert.assertEquals("wrong token type", Token.Type.MIN_PRICE, tokenizer.current().getType());
         Assert.assertEquals("wrong token value", "1024", tokenizer.current().getToken());
     }
 
@@ -44,7 +44,7 @@ public class TokenizerTest extends TestCase {
     public void testPriceLessToken() {
         tokenizer = new Tokenizer("<2048 ^bullet-proof");
 
-        Assert.assertEquals("wrong token type", Token.Type.PRICE_LESS, tokenizer.current().getType());
+        Assert.assertEquals("wrong token type", Token.Type.MAX_PRICE, tokenizer.current().getType());
         Assert.assertEquals("wrong token value", "2048", tokenizer.current().getToken());
     }
 
