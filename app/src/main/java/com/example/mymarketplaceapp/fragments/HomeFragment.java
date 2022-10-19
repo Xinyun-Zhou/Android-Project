@@ -43,7 +43,18 @@ public class HomeFragment extends Fragment {
 
         this.view = view;
         setListeners();
+
+        Button chatTest = view.findViewById(R.id.bt_chat_test);
+        chatTest.setOnClickListener(chatOnClickListener);
     }
+
+    private View.OnClickListener chatOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            MessageFragment messageFragment = new MessageFragment();
+            getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer, messageFragment).commit();
+        }
+    };
 
     private void setListeners() {
         Button categoryButton0 = (Button) view.findViewById(R.id.bt_home_category_0);
