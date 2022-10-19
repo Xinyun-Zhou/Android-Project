@@ -6,11 +6,13 @@ import android.os.Parcelable;
 import com.example.mymarketplaceapp.models.Category;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * Parsed search query
- *
+ * <p>
  * Example:
  * "uPhone #ELECTRONICS @JB Wi-Fi >1024 <2048 ^bullet-proof"
  * itemName = "uPhone" (contain)
@@ -99,6 +101,58 @@ public class Query implements Parcelable {
                 return token.getToken().toLowerCase();
 
         return null;
+    }
+
+    public String checkQuery() {
+        if (itemName == "")
+            return "Invalid query";
+
+        int[] counter = {0, 0, 0, 0, 0, 0, 0};
+
+        for (Token token : filter) {
+            switch (token.getType()) {
+                case CATEGORY:
+                    if (!Arrays.asList(Stream.of(Token.Type.values()).map(Enum::name).toArray(String[]::new)).contains(token.getToken().toUpperCase()))
+                        return "Invalid category";
+                    counter[Token.Type.CATEGORY.ordinal()]++;
+                    break;
+                case USERNAME:
+                    counter[Token.Type.USERNAME.ordinal()]++;
+                    break;
+                case MIN_PRICE:
+                    try {
+                        double price = Double.parseDouble(token.getToken());
+                    } catch (NullPointerException nullPointerException) {
+                        return "Invalid minimum price";
+                    } catch (NumberFormatException numberFormatException) {
+                        return "Invalid minimum price";
+                    }
+                    counter[Token.Type.MIN_PRICE.ordinal()]++;
+                    break;
+                case MAX_PRICE:
+                    try {
+                        double price = Double.parseDouble(token.getToken());
+                    } catch (NullPointerException nullPointerException) {
+                        return "Invalid maximum price";
+                    } catch (NumberFormatException numberFormatException) {
+                        return "Invalid maximum price";
+                    }
+                    counter[Token.Type.MAX_PRICE.ordinal()]++;
+                    break;
+                case DESCRIPTION:
+                    counter[Token.Type.DESCRIPTION.ordinal()]++;
+                    break;
+                default:
+                    return "";
+            }
+
+        }
+
+        for (int count : counter)
+            if (count > 1)
+                return "Duplicate filter criteria";
+
+        return "";
     }
 
     @Override

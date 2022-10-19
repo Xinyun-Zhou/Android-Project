@@ -58,7 +58,11 @@ public class Parser {
     }
 
     public Token parseCriteria() {
-        tokenizer.next();
+        try {
+            tokenizer.next();
+        }catch (Tokenizer.IllegalTokenException e){
+            throw new IllegalProductionException("");
+        }
 
         return tokenizer.current();
     }
