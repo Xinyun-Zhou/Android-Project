@@ -5,12 +5,13 @@ import java.util.List;
 
 /**
  * User
+ * Sorting by unique username in the AVL tree by default
  *
  * @author u7366711 Yuxuan Zhao
  */
 public class User implements Comparable<User> {
-    private int uid;
-    private String username;
+    private int uid; // unique
+    private String username; // unique
     private String password;
     private String postcode;
     private String address;

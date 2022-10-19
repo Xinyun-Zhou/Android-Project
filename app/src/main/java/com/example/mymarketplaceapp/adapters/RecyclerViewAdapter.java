@@ -19,6 +19,7 @@ import java.util.List;
 
 /**
  * Recycler View Adapter
+ * Implement the recycler views for shopping cart and item list
  *
  * @author u7366711 Yuxuan Zhao, u7326123 Rita Zhou
  */
@@ -45,6 +46,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.MyViewHolder holder, int position) {
         holder.nameTextView.setText(itemList.get(position).getName());
+        // price to two decimal places
         holder.priceTextView.setText("$ " + String.format("%.2f", itemList.get(position).getPrice()));
         if (hasQuantity)
             holder.quantityTextView.setText("Quantity: " + itemList.get(position).getQuantity());

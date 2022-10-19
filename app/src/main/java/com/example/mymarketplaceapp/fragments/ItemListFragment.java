@@ -24,6 +24,7 @@ import java.util.Locale;
 
 /**
  * Item List Fragment
+ * Implement a draggable item list
  *
  * @author u7366711 Yuxuan Zhao
  */
@@ -40,14 +41,17 @@ public class ItemListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // Get Category or Query from other fragments
         Bundle bundle = getArguments();
         int categoryIndex = bundle.getInt("Category");
         Query query = bundle.getParcelable("Query");
 
+        // Select items
         ItemDao itemDao = ItemDao.getInstance();
 
         List<Item> itemList = query != null ? itemDao.search(query) : itemDao.getCategoryItems(Category.values()[categoryIndex]);
 
+        // Show item list
         RecyclerView recyclerView = view.findViewById(R.id.rv_item_list);
 
         // AVL tree test

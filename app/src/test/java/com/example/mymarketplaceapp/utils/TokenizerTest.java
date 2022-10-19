@@ -5,6 +5,11 @@ import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.Assert;
 
+/**
+ * Unit tests for the Tokenizer class
+ *
+ * @author u7366711 Yuxuan Zhao
+ */
 public class TokenizerTest extends TestCase {
     private static Tokenizer tokenizer;
 

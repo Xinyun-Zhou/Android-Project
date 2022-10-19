@@ -24,6 +24,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 /**
  * Home Fragment
+ * Implement interaction on the home page
  *
  * @author u7366711 Yuxuan Zhao
  */
@@ -57,6 +58,7 @@ public class HomeFragment extends Fragment {
     };
 
     private void setListeners() {
+        // category buttons
         Button categoryButton0 = (Button) view.findViewById(R.id.bt_home_category_0);
         categoryButton0.setOnClickListener(categoryButtonOnClickListener);
         Button categoryButton1 = (Button) view.findViewById(R.id.bt_home_category_1);
@@ -74,6 +76,7 @@ public class HomeFragment extends Fragment {
         Button categoryButton7 = (Button) view.findViewById(R.id.bt_home_category_7);
         categoryButton7.setOnClickListener(categoryButtonOnClickListener);
 
+        // search box
         TextInputEditText textInputEditText = (TextInputEditText) view.findViewById(R.id.et_home_search);
         textInputEditText.setOnEditorActionListener(searchOnEditorActionListener);
     }
@@ -109,6 +112,7 @@ public class HomeFragment extends Fragment {
                 default:
                     break;
             }
+            // Pass chosen category to item list fragment
             ItemListFragment itemListFragment = new ItemListFragment();
             itemListFragment.setArguments(bundle);
             getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer, itemListFragment).commit();
@@ -119,7 +123,9 @@ public class HomeFragment extends Fragment {
         @Override
         public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                // Parse query
                 Query query = parseQuery(v.getText().toString());
+                // Pass query to item list fragment
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("Query", query);
                 ItemListFragment itemListFragment = new ItemListFragment();

@@ -2,7 +2,7 @@ package com.example.mymarketplaceapp.models;
 
 import android.content.Context;
 
-import com.example.mymarketplaceapp.Utils.ContextUtil;
+import com.example.mymarketplaceapp.utils.ContextUtil;
 import com.example.mymarketplaceapp.utils.AVLTree;
 import com.example.mymarketplaceapp.utils.Tree;
 import com.google.gson.Gson;
@@ -16,6 +16,9 @@ import java.util.List;
 
 /**
  * User Data Access Object
+ * Read user data from json
+ * Generate user list and user AVL tree
+ * Search user based on username
  *
  * @author u7366711 Yuxuan Zhao
  */
@@ -57,6 +60,11 @@ public class UserDao implements UserDaoInterface {
         return userList;
     }
 
+    /**
+     * Read and parse user.json
+     *
+     * @return AVL Tree of all users
+     */
     public AVLTree<User> getAllUsersAVL() {
         Context context = ContextUtil.getInstance();
         User[] userArray;
@@ -86,6 +94,12 @@ public class UserDao implements UserDaoInterface {
         return null;
     }
 
+    /**
+     * Search user based on username
+     *
+     * @param username
+     * @return instance of user with given username
+     */
     public User searchUser(String username) {
         AVLTree<User> userAVLTree = getAllUsersAVL();
         Tree<User> result = userAVLTree.find(new User(username));

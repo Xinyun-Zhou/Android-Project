@@ -1,7 +1,9 @@
 package com.example.mymarketplaceapp.models;
 
 /**
- * Item
+ * Item class
+ * Sorting by product name in the AVL tree by default
+ * Sorting by id for products with the same name
  *
  * @author u7366711 Yuxuan Zhao
  */

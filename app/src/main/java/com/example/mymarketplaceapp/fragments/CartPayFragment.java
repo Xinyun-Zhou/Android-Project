@@ -21,6 +21,7 @@ import com.google.android.material.textfield.TextInputLayout;
 /**
  * Pay the cart Fragment
  * The user can finish the payment in this page
+ *
  * @author u7326123 Rita Zhou
  */
 public class CartPayFragment extends Fragment {
@@ -59,10 +60,9 @@ public class CartPayFragment extends Fragment {
     public View.OnClickListener payOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            if (inputName != null && inputAddress != null && inputPostcode != null && inputPhone != null){
+            if (inputName != null && inputAddress != null && inputPostcode != null && inputPhone != null) {
 
-            }
-            else{
+            } else {
                 Toast.makeText(view.getContext(), "Please fill out your detail", Toast.LENGTH_LONG).show();
             }
         }

@@ -35,6 +35,7 @@ import java.util.List;
  * Cart Fragment
  * Shows up current user's cart
  * The user can buy items in the cart by click the Next button
+ *
  * @author u7326123 Rita Zhou
  */
 public class CartFragment extends Fragment {
@@ -99,7 +100,7 @@ public class CartFragment extends Fragment {
     private ValueEventListener findUsersValueEventListener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
-            if (snapshot.exists()){
+            if (snapshot.exists()) {
                 int currentUserUid = Integer.parseInt(snapshot.child("uid").getValue().toString());
                 String username = snapshot.child("username").getValue().toString();
                 String password = snapshot.child("password").getValue().toString();

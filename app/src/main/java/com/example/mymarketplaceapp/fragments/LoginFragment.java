@@ -46,9 +46,11 @@ public class LoginFragment extends Fragment {
 
         this.view = view;
 
+        // Get userSession from home fragment
         Bundle bundle = getArguments();
         userSession = bundle.getParcelable("userSession");
 
+        // Set listener
         Button signInButton = (Button) view.findViewById(R.id.bt_login_sign_in);
         signInButton.setOnClickListener(signInOnClickListener);
     }
@@ -57,6 +59,7 @@ public class LoginFragment extends Fragment {
         @Override
         public void onClick(View v) {
             if (userSession.login(getUsername(), getPassword())) {
+                // Sign in successfully -> person fragment
                 PersonFragment personFragment = new PersonFragment();
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("userSession", userSession);
