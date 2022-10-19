@@ -6,14 +6,17 @@ import android.os.Parcelable;
 import java.util.List;
 
 public class Cart implements Parcelable {
-    private User user;
+    private UserSession userSession;
     private List<Item> item;
     private double totalCost;
 
-    public Cart(User user, List<Item> item, double totalCost) {
-        this.user = user;
+    public Cart(UserSession userSession, List<Item> item, double totalCost) {
+        this.userSession = userSession;
         this.item = item;
         this.totalCost = totalCost;
+    }
+
+    public Cart(){
     }
 
     protected Cart(Parcel in) {
@@ -32,8 +35,8 @@ public class Cart implements Parcelable {
         }
     };
 
-    public User getCartUser() {
-        return user;
+    public UserSession getCartUser() {
+        return userSession;
     }
 
     public List<Item> getCartItems() {

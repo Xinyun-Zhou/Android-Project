@@ -48,12 +48,17 @@ public class ItemListFragment extends Fragment {
 
         List<Item> itemList = query != null ? itemDao.search(query) : itemDao.getCategoryItems(Category.values()[categoryIndex]);
 
+        for (Item item : itemList){
+            System.out.println(item.getId());
+            System.out.println(item.getQuantity());
+        }
+
         RecyclerView recyclerView = view.findViewById(R.id.rv_item_list);
 
         // AVL tree test
         //RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this.getContext(), itemDao.getAllItemsAVL().inOrder());
 
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this.getContext(), itemList, false);
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this.getContext(), itemList, false, null);
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
     }

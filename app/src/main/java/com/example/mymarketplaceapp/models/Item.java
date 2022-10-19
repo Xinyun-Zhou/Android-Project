@@ -52,6 +52,10 @@ public class Item implements Comparable<Item> {
         return description;
     }
 
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     @Override
     public int compareTo(Item o) {
         int strDifference = this.name.compareTo(o.name);

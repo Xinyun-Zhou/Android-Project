@@ -62,6 +62,10 @@ public class User implements Comparable<User> {
         return cart;
     }
 
+    public void setCart(List<CartItem> cart) {
+        this.cart = cart;
+    }
+
     @Override
     public int compareTo(User o) {
         int strDifference = this.username.compareTo(o.username);

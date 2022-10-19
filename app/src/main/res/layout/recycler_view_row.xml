@@ -48,22 +48,57 @@
                 style="@style/Widget.MaterialComponents.TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="0dp"
                 android:layout_marginTop="8dp"
                 android:text="$88.88"
                 android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                android:textSize="24sp"
                 app:layout_constraintStart_toEndOf="@id/iv_rvr"
                 app:layout_constraintTop_toBottomOf="@id/tv_rvr_name" />
 
-            <TextView
-                android:id="@+id/tv_rvr_quantity"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="32dp"
-                android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                android:layout_height="40dp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_rvr_name" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_rvr_name">
+
+
+                <ImageButton
+                    android:id="@+id/btn_minus_item"
+                    android:layout_width="46dp"
+                    android:layout_height="38dp"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_rvr_quantity"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/indeterminate_check_box_48px" />
+
+                <ImageButton
+                    android:id="@+id/btn_plus_item"
+                    android:layout_width="47dp"
+                    android:layout_height="42dp"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/add_48px" />
+
+                <TextView
+                    android:id="@+id/tv_rvr_quantity"
+                    style="@style/Widget.MaterialComponents.TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                    android:textSize="24sp"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_plus_item"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.695" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
