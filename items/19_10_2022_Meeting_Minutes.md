@@ -4,7 +4,8 @@
 
 **Time:** 12:00 
 
-**Present:** Yuxuan Zhao (Ethan), Xinyun Zhou (Rita) **Absent:** Fiona Chu, Lachlan Scott 
+**Present:** Yuxuan Zhao (Ethan), Xinyun Zhou (Rita)   
+**Absent:** Fiona Chu, Lachlan Scott 
 
 **Agenda** 
 
