@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.mymarketplaceapp.R;
 import com.example.mymarketplaceapp.adapters.RecyclerViewAdapter;
+import com.example.mymarketplaceapp.adapters.RecyclerViewInterface;
 import com.example.mymarketplaceapp.models.Cart;
 import com.example.mymarketplaceapp.models.CartItem;
 import com.example.mymarketplaceapp.models.Category;
@@ -38,7 +39,7 @@ import java.util.List;
  *
  * @author u7326123 Rita Zhou
  */
-public class CartFragment extends Fragment {
+public class CartFragment extends Fragment implements RecyclerViewInterface {
     private UserSession userSession;
     View view;
     List<Item> itemList;
@@ -88,7 +89,7 @@ public class CartFragment extends Fragment {
         totalText = view.findViewById(R.id.tv_cart_total);
 
         recyclerView = view.findViewById(R.id.rt_cart_list);
-        recyclerViewAdapter = new RecyclerViewAdapter(view.getContext(), itemListToShow, true);
+        recyclerViewAdapter = new RecyclerViewAdapter(view.getContext(), itemListToShow, true, this);
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
 
@@ -179,4 +180,9 @@ public class CartFragment extends Fragment {
             getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer, cartPayFragment).commit();
         }
     };
+
+    @Override
+    public void onItemClick(int position) {
+
+    }
 }

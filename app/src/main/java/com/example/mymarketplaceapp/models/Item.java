@@ -16,6 +16,10 @@ public class Item implements Comparable<Item> {
     private Category category;
     private String description;
 
+    public Item(int id){
+        this.id = id;
+    }
+
     public Item(int id, String name, double price, int quantity, int sellerUid, Category category, String description) {
         this.id = id;
         this.name = name;
@@ -56,19 +60,12 @@ public class Item implements Comparable<Item> {
 
     @Override
     public int compareTo(Item o) {
-        int strDifference = this.name.compareTo(o.name);
-        if (strDifference < 0) {
+        if (this.id < o.id) {
             return -1;
-        } else if (strDifference > 0) {
+        } else if (this.id > o.id) {
             return 1;
         } else {
-            if (this.id < o.id) {
-                return -1;
-            } else if (this.id > o.id) {
-                return 1;
-            } else {
-                return 0;
-            }
+            return 0;
         }
     }
 }

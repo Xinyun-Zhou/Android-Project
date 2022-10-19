@@ -111,6 +111,10 @@ public class ItemDao {
         return selectedItemList;
     }
 
+    public Item getItem(int id){
+        return getAllItemsAVL().find(new Item(id)).value;
+    }
+
     /**
      * Filter the item list by the category in the query
      *

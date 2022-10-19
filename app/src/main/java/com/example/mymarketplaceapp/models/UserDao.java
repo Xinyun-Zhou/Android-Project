@@ -35,6 +35,16 @@ public class UserDao implements UserDaoInterface {
         return instance;
     }
 
+    public String getUsername(int uid){
+        List<User> userList = getAllUsers();
+
+        for(User user : userList)
+            if(uid==user.getUid())
+                return user.getUsername();
+
+        return null;
+    }
+
     /**
      * Read and parse user.json
      *
