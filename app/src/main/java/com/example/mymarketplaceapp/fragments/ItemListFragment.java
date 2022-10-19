@@ -11,16 +11,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.mymarketplaceapp.R;
 import com.example.mymarketplaceapp.adapters.RecyclerViewAdapter;
+import com.example.mymarketplaceapp.adapters.RecyclerViewInterface;
 import com.example.mymarketplaceapp.models.Category;
 import com.example.mymarketplaceapp.models.Item;
 import com.example.mymarketplaceapp.models.ItemDao;
 import com.example.mymarketplaceapp.utils.Query;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Item List Fragment
@@ -28,7 +31,10 @@ import java.util.Locale;
  *
  * @author u7366711 Yuxuan Zhao
  */
-public class ItemListFragment extends Fragment {
+public class ItemListFragment extends Fragment implements RecyclerViewInterface {
+    private List<Item> itemList;
+    private RecyclerView recyclerView;
+    private RecyclerViewAdapter recyclerViewAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,16 +55,82 @@ public class ItemListFragment extends Fragment {
         // Select items
         ItemDao itemDao = ItemDao.getInstance();
 
-        List<Item> itemList = query != null ? itemDao.search(query) : itemDao.getCategoryItems(Category.values()[categoryIndex]);
+        itemList = query != null ? itemDao.search(query) : itemDao.getCategoryItems(Category.values()[categoryIndex]);
 
         // Show item list
-        RecyclerView recyclerView = view.findViewById(R.id.rv_item_list);
+        recyclerView = view.findViewById(R.id.rv_item_list);
 
         // AVL tree test
         //RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this.getContext(), itemDao.getAllItemsAVL().inOrder());
 
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this.getContext(), itemList, false);
+        refreshRecycleView(itemList);
+
+        // Set listener
+        Button button1 = (Button) view.findViewById(R.id.bt_item_list_price_low);
+        button1.setOnClickListener(sortOnClickListener);
+        Button button2 = (Button) view.findViewById(R.id.bt_item_list_price_high);
+        button2.setOnClickListener(sortOnClickListener);
+    }
+
+    private void refreshRecycleView(List<Item> itemList) {
+        recyclerViewAdapter = new RecyclerViewAdapter(this.getContext(), itemList, false, this);
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+    }
+
+    private View.OnClickListener sortOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.bt_item_list_price_low:
+                    Collections.sort(itemList, new Comparator<Item>() {
+                        @Override
+                        public int compare(Item o1, Item o2) {
+                            if (o1.getPrice() > o2.getPrice())
+                                return 1;
+                            else if (o1.getPrice() < o2.getPrice())
+                                return -1;
+                            else {
+                                if (o1.getId() > o2.getId())
+                                    return 1;
+                                else
+                                    return -1;
+                            }
+                        }
+                    });
+                    break;
+                case R.id.bt_item_list_price_high:
+                    Collections.sort(itemList, new Comparator<Item>() {
+                        @Override
+                        public int compare(Item o1, Item o2) {
+                            if (o1.getPrice() > o2.getPrice())
+                                return -1;
+                            else if (o1.getPrice() < o2.getPrice())
+                                return 1;
+                            else {
+                                if (o1.getId() > o2.getId())
+                                    return 1;
+                                else
+                                    return -1;
+                            }
+                        }
+                    });
+                    break;
+                default:
+                    return;
+            }
+            // refresh recycler view
+            refreshRecycleView(itemList);
+        }
+    };
+
+    @Override
+    public void onItemClick(int position) {
+        // Pass the id of clicked item
+        Bundle bundle = new Bundle();
+        bundle.putInt("itemId", itemList.get(position).getId());
+        ItemDetailFragment itemDetailFragment = new ItemDetailFragment();
+        itemDetailFragment.setArguments(bundle);
+        getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer, itemDetailFragment).commit();
     }
 }
