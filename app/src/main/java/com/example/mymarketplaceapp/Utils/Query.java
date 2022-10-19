@@ -8,10 +8,24 @@ import com.example.mymarketplaceapp.models.Category;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Parsed search query
+ *
+ * Example:
+ * "uPhone #ELECTRONICS @JB Wi-Fi >1024 <2048 ^bullet-proof"
+ * itemName = "uPhone" (contain)
+ * Category = ELECTRONICS
+ * username (of seller) = "JB Wi-Fi"
+ * MinPrice = 1024.00
+ * MaxPrice = 2048.00
+ * Description = "bullet-proof" (contain)
+ *
+ * @author u7366711 Yuxuan Zhao
+ */
 public class Query implements Parcelable {
 
     private String itemName;
-    private List<Token> filter;
+    private List<Token> filter; // filter is the list of criteria
 
     public Query(String itemName) {
         this.itemName = itemName;
@@ -48,40 +62,40 @@ public class Query implements Parcelable {
     }
 
     public Category getCategory() {
-        for(Token token : filter)
-            if(token.getType().equals(Token.Type.CATEGORY))
+        for (Token token : filter)
+            if (token.getType().equals(Token.Type.CATEGORY))
                 return Category.valueOf(token.getToken().toUpperCase());
 
         return null;
     }
 
     public String getUsername() {
-        for(Token token : filter)
-            if(token.getType().equals(Token.Type.USERNAME))
+        for (Token token : filter)
+            if (token.getType().equals(Token.Type.USERNAME))
                 return token.getToken().toLowerCase();
 
         return null;
     }
 
     public double getMinPrice() {
-        for(Token token : filter)
-            if(token.getType().equals(Token.Type.MIN_PRICE))
+        for (Token token : filter)
+            if (token.getType().equals(Token.Type.MIN_PRICE))
                 return Double.valueOf(token.getToken());
 
         return 0;
     }
 
     public double getMaxPrice() {
-        for(Token token : filter)
-            if(token.getType().equals(Token.Type.MAX_PRICE))
+        for (Token token : filter)
+            if (token.getType().equals(Token.Type.MAX_PRICE))
                 return Double.valueOf(token.getToken());
 
         return Double.MAX_VALUE;
     }
 
     public String getDescription() {
-        for(Token token : filter)
-            if(token.getType().equals(Token.Type.DESCRIPTION))
+        for (Token token : filter)
+            if (token.getType().equals(Token.Type.DESCRIPTION))
                 return token.getToken().toLowerCase();
 
         return null;

@@ -2,19 +2,12 @@ package com.example.mymarketplaceapp.utils;
 
 /**
  * AVL tree
+ * Modified the insertion method based on my lab code
  *
  * @param <T>
- * @author lab code, u7366711 Yuxuan Zhao
+ * @author u7366711 Yuxuan Zhao
  */
 public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T> {
-    /*
-        As a result of inheritance by using 'extends BinarySearchTree<T>,
-        all class fields within BinarySearchTree are also present here.
-        So while not explicitly written here, this class has:
-            - value
-            - leftNode
-            - rightNode
-     */
 
     public AVLTree(T value) {
         super(value);
@@ -31,12 +24,7 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T> {
      * @return balance factor of the current node.
      */
     public int getBalanceFactor() {
-        /*
-             Note:
-             Calculating the balance factor and height each time they are needed is less efficient than
-             simply storing the height and balance factor as fields within each tree node (as some
-             implementations of the AVLTree do). However, although it is inefficient, it is easier to implement.
-         */
+
         return leftNode.getHeight() - rightNode.getHeight();
     }
 
@@ -123,11 +111,6 @@ public class AVLTree<T extends Comparable<T>> extends BinarySearchTree<T> {
         return (AVLTree<T>) newParent;
     }
 
-    /**
-     * Note that this is not within a file of its own... WHY?
-     * The answer is: this is just a design decision. 'insert' here will return something specific
-     * to the parent class inheriting Tree from BinarySearchTree. In this case an AVL tree.
-     */
     public static class EmptyAVL<T extends Comparable<T>> extends EmptyTree<T> {
         @Override
         public Tree<T> insert(T element) {
