@@ -1,4 +1,4 @@
-﻿**COMP2100 Group Assignment Meeting** 
+**COMP2100 Group Assignment Meeting** 
 
 **Date:** 19/10/2022 
 
@@ -33,6 +33,8 @@
   - Transfer resources from one account to another. 
 - Discuss about use the firebase or local files: 
   - Not decide yet, but well decide before next meeting. 
+- Move the Meeting minutes in the wiki to the item folder
+  - We just know that we should upload our meeting notes to the item folder. So we will move what we have for the first meeting minutes and the second meeting minutes on the wiki page to the item folder. In addition, we will not remove these files from the wiki, because the wiki contains the time for our updating these files. Also, we are using Microsoft teams to contact each other, the meeting time is shown on our chat history as well.
 - Discussion about assigning work 
 - Decided on time for the next meeting. 
 - Meeting adjourned. 
