@@ -24,14 +24,17 @@ import java.util.List;
  * @author u7366711 Yuxuan Zhao, u7326123 Rita Zhou
  */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
+    private final RecyclerViewInterface recyclerViewInterface;
+
     Context context;
     List<Item> itemList;
     boolean hasQuantity;
 
-    public RecyclerViewAdapter(Context context, List<Item> itemList, boolean hasQuantity) {
+    public RecyclerViewAdapter(Context context, List<Item> itemList, boolean hasQuantity, RecyclerViewInterface recyclerViewInterface) {
         this.context = context;
         this.itemList = itemList;
         this.hasQuantity = hasQuantity;
+        this.recyclerViewInterface = recyclerViewInterface;
     }
 
     @NonNull
@@ -40,7 +43,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.recycler_view_row, parent, false);
 
-        return new RecyclerViewAdapter.MyViewHolder(view);
+        return new RecyclerViewAdapter.MyViewHolder(view, recyclerViewInterface);
     }
 
     @Override
@@ -61,13 +64,26 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         ImageView imageView;
         TextView nameTextView, priceTextView, quantityTextView;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
             super(itemView);
 
             imageView = (ImageView) itemView.findViewById(R.id.iv_rvr);
             nameTextView = (TextView) itemView.findViewById(R.id.tv_rvr_name);
             priceTextView = (TextView) itemView.findViewById(R.id.tv_rvr_price);
             quantityTextView = (TextView) itemView.findViewById(R.id.tv_rvr_quantity);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (recyclerViewInterface != null) {
+                        int position = getAdapterPosition();
+
+                        if (position != RecyclerView.NO_POSITION) {
+                            recyclerViewInterface.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 }
