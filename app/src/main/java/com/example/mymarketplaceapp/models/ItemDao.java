@@ -37,7 +37,6 @@ public class ItemDao {
         return instance;
     }
 
-<<<<<<< HEAD
     public List<Item> getItemList(){
         if (itemList == null){
             itemList = getAllItems();
@@ -45,13 +44,11 @@ public class ItemDao {
         return itemList;
     }
 
-=======
     /**
      * Read and parse item.json
      *
      * @return Arraylist of all items
      */
->>>>>>> 157124b41a2c3455ac74a86d278d547793d21db7
     public List<Item> getAllItems() {
         Context context = ContextUtil.getInstance();
         itemList = new ArrayList<>();

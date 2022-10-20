@@ -1,9 +1,9 @@
 package com.example.mymarketplaceapp.models;
 
-import com.example.mymarketplaceapp.models.Category;
-
 /**
- * Item
+ * Item class
+ * Sorting by product name in the AVL tree by default
+ * Sorting by id for products with the same name
  *
  * @author u7366711 Yuxuan Zhao
  */
@@ -15,6 +15,10 @@ public class Item implements Comparable<Item> {
     private int sellerUid;
     private Category category;
     private String description;
+
+    public Item(int id){
+        this.id = id;
+    }
 
     public Item(int id, String name, double price, int quantity, int sellerUid, Category category, String description) {
         this.id = id;
@@ -84,19 +88,12 @@ public class Item implements Comparable<Item> {
 
     @Override
     public int compareTo(Item o) {
-        int strDifference = this.name.compareTo(o.name);
-        if (strDifference < 0) {
+        if (this.id < o.id) {
             return -1;
-        } else if (strDifference > 0) {
+        } else if (this.id > o.id) {
             return 1;
         } else {
-            if (this.id < o.id) {
-                return -1;
-            } else if (this.id > o.id) {
-                return 1;
-            } else {
-                return 0;
-            }
+            return 0;
         }
     }
 }

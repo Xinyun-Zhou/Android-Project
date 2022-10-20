@@ -101,11 +101,7 @@ public class CartFragment extends Fragment implements RecyclerViewInterface {
         btMinus = view.findViewById(R.id.btn_minus_item);
 
         recyclerView = view.findViewById(R.id.rt_cart_list);
-<<<<<<< HEAD
-        recyclerViewAdapter = new RecyclerViewAdapter(view.getContext(), itemListToShow, true, userSession);
-=======
-        recyclerViewAdapter = new RecyclerViewAdapter(view.getContext(), itemListToShow, true, this);
->>>>>>> 157124b41a2c3455ac74a86d278d547793d21db7
+        recyclerViewAdapter = new RecyclerViewAdapter(view.getContext(), itemListToShow, true, userSession, this);
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
 
@@ -113,82 +109,6 @@ public class CartFragment extends Fragment implements RecyclerViewInterface {
 //        DatabaseReference users = FirebaseDatabase.getInstance().getReference().child("user").child(uidStr);
 //        users.addValueEventListener(findUsersValueEventListener);
     }
-
-<<<<<<< HEAD
-=======
-    private ValueEventListener findUsersValueEventListener = new ValueEventListener() {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot snapshot) {
-            if (snapshot.exists()) {
-                int currentUserUid = Integer.parseInt(snapshot.child("uid").getValue().toString());
-                String username = snapshot.child("username").getValue().toString();
-                String password = snapshot.child("password").getValue().toString();
-                String postcode = snapshot.child("postcode").getValue().toString();
-                String address = snapshot.child("address").getValue().toString();
-                int phone = Integer.parseInt(snapshot.child("phone").getValue().toString());
-                DataSnapshot cartPath = snapshot.child("cart");
-                for (DataSnapshot cart : cartPath.getChildren()) {
-                    int id = Integer.parseInt(cart.child("id").getValue().toString());
-                    int quantity = Integer.parseInt(cart.child("quantity").getValue().toString());
-                    CartItem cartItem = new CartItem(id, quantity);
-                    itemRequired.add(cartItem);
-                }
-                userDetail = new User(currentUserUid, username, password, postcode, address, phone, itemRequired);
-            }
-            if (itemRequired.size() > 0) {
-                DatabaseReference items = FirebaseDatabase.getInstance().getReference().child("item");
-                items.addValueEventListener(findItemsValueEventListener);
-            }
-        }
-
-        @Override
-        public void onCancelled(@NonNull DatabaseError error) {
-        }
-    };
-
-    private ValueEventListener findItemsValueEventListener = new ValueEventListener() {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            if (dataSnapshot.exists()) {
-                for (DataSnapshot currentItem : dataSnapshot.getChildren()) {
-                    int currentItemId = Integer.parseInt(currentItem.child("id").getValue().toString());
-                    for (int i = 0; i < itemRequired.size(); i++) {
-                        if (currentItemId == itemRequired.get(i).getCartItemId()) {
-                            String itemName = currentItem.child("name").getValue().toString();
-                            double itemPrice = Integer.parseInt(currentItem.child("price").getValue().toString());
-                            int itemQuantity = Integer.parseInt(currentItem.child("quantity").getValue().toString());
-                            int itemSellerUid = Integer.parseInt(currentItem.child("sellerUid").getValue().toString());
-                            Category itemCategory = Category.valueOf(currentItem.child("category").getValue().toString());
-                            String itemDescription = currentItem.child("description").getValue().toString();
-                            Item newItem = new Item(currentItemId, itemName, itemPrice, itemQuantity, itemSellerUid, itemCategory, itemDescription);
-                            itemList.add(newItem);
-                            Item showItem = new Item(currentItemId, itemName, itemPrice, itemRequired.get(i).getCartItemQuantity(), itemSellerUid, itemCategory, itemDescription);
-                            itemListToShow.add(showItem);
-                        }
-                    }
-                }
-
-                for (Item item : itemList) {
-                    for (CartItem cartItem : itemRequired) {
-                        if (item.getId() == cartItem.getCartItemId())
-                            totalAmount += (item.getPrice() * cartItem.getCartItemQuantity());
-                    }
-                }
-
-                cart = new Cart(userDetail, itemList, totalAmount);
-
-                totalText.setText("TOTAL : $" + totalAmount);
-                recyclerViewAdapter.notifyDataSetChanged();
-            }
-        }
-
-        @Override
-        public void onCancelled(@NonNull DatabaseError error) {
-        }
-    };
-
-
->>>>>>> 157124b41a2c3455ac74a86d278d547793d21db7
     private View.OnClickListener nextPageOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -202,7 +122,10 @@ public class CartFragment extends Fragment implements RecyclerViewInterface {
         }
     };
 
-<<<<<<< HEAD
+    @Override
+    public void onItemClick(int position) {
+    }
+
 //    private ValueEventListener findUsersValueEventListener = new ValueEventListener() {
 //        @Override
 //        public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -273,10 +196,5 @@ public class CartFragment extends Fragment implements RecyclerViewInterface {
 //        public void onCancelled(@NonNull DatabaseError error) {
 //        }
 //    };
-=======
-    @Override
-    public void onItemClick(int position) {
 
-    }
->>>>>>> 157124b41a2c3455ac74a86d278d547793d21db7
 }

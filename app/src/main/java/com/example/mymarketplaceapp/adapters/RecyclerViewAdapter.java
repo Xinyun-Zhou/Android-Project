@@ -34,22 +34,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     Context context;
     List<Item> itemList;
     boolean hasQuantity;
-
-<<<<<<< HEAD
     UserSession userSession;
 
-    public RecyclerViewAdapter(Context context, List<Item> itemList, boolean hasQuantity, UserSession userSession) {
+    public RecyclerViewAdapter(Context context, List<Item> itemList, boolean hasQuantity, UserSession userSession, RecyclerViewInterface recyclerViewInterface) {
         this.context = context;
         this.itemList = itemList;
         this.hasQuantity = hasQuantity;
         this.userSession = userSession;
-=======
-    public RecyclerViewAdapter(Context context, List<Item> itemList, boolean hasQuantity, RecyclerViewInterface recyclerViewInterface) {
-        this.context = context;
-        this.itemList = itemList;
-        this.hasQuantity = hasQuantity;
         this.recyclerViewInterface = recyclerViewInterface;
->>>>>>> 157124b41a2c3455ac74a86d278d547793d21db7
     }
 
     @NonNull
@@ -167,10 +159,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             priceTextView = (TextView) itemView.findViewById(R.id.tv_rvr_price);
             quantityTextView = (TextView) itemView.findViewById(R.id.tv_rvr_quantity);
 
-<<<<<<< HEAD
             btMinus = itemView.findViewById(R.id.btn_minus_item);
             btPlus = itemView.findViewById(R.id.btn_plus_item);
-=======
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -183,7 +173,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     }
                 }
             });
->>>>>>> 157124b41a2c3455ac74a86d278d547793d21db7
         }
     }
 }

@@ -57,24 +57,17 @@ public class ItemListFragment extends Fragment implements RecyclerViewInterface 
 
         itemList = query != null ? itemDao.search(query) : itemDao.getCategoryItems(Category.values()[categoryIndex]);
 
-<<<<<<< HEAD
         for (Item item : itemList){
             System.out.println(item.getId());
             System.out.println(item.getQuantity());
         }
 
-        RecyclerView recyclerView = view.findViewById(R.id.rv_item_list);
-=======
         // Show item list
         recyclerView = view.findViewById(R.id.rv_item_list);
->>>>>>> 157124b41a2c3455ac74a86d278d547793d21db7
+
 
         // AVL tree test
         //RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this.getContext(), itemDao.getAllItemsAVL().inOrder());
-
-<<<<<<< HEAD
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this.getContext(), itemList, false, null);
-=======
         refreshRecycleView(itemList);
 
         // Set listener
@@ -85,8 +78,7 @@ public class ItemListFragment extends Fragment implements RecyclerViewInterface 
     }
 
     private void refreshRecycleView(List<Item> itemList) {
-        recyclerViewAdapter = new RecyclerViewAdapter(this.getContext(), itemList, false, this);
->>>>>>> 157124b41a2c3455ac74a86d278d547793d21db7
+        recyclerViewAdapter = new RecyclerViewAdapter(this.getContext(), itemList, false, null, this);
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
     }
