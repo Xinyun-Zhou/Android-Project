@@ -25,6 +25,7 @@ import com.example.mymarketplaceapp.models.ItemDao;
 import com.example.mymarketplaceapp.models.Order;
 import com.example.mymarketplaceapp.models.OrderManager;
 import com.example.mymarketplaceapp.models.User;
+import com.example.mymarketplaceapp.models.UserDao;
 import com.example.mymarketplaceapp.models.UserSession;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -116,7 +117,9 @@ public class CartPayFragment extends Fragment {
                 orderManager.createNewOrder(userSession.getUser().getUid(),userSession.getUser().getCart());
 
                 // clear cart
-                userSession.getUser().getCart().clear();
+                userSession.getUser().clearCart();
+                UserDao userDao = UserDao.getInstance();
+                userDao.searchUser(userSession.getUser().getUsername()).clearCart();
                 showDialog();
             }
         }
