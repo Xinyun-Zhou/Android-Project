@@ -61,7 +61,7 @@ public class CartPayFragment extends Fragment {
         Bundle bundle = getArguments();
         userSession = bundle.getParcelable("userSession");
         itemList = ItemDao.getInstance().getItemList();
-        int total = 0;
+        double total = 0;
         for (Item item : itemList){
             for (CartItem cartItem : userSession.getUser().getCart()){
                 if (item.getId() == cartItem.getCartItemId()){
@@ -82,7 +82,7 @@ public class CartPayFragment extends Fragment {
         inputPhone = view.findViewById(R.id.et_type_phone);
 
         totalAmount = view.findViewById(R.id.tv_total_pay);
-        totalAmount.setText("TOTAL: $" + total);
+        totalAmount.setText("Total: $ " + String.format("%.2f",total));
 
         Button buttonPay = view.findViewById(R.id.bt_cart_pay);
         buttonPay.setOnClickListener(payOnClickListener);
@@ -108,7 +108,7 @@ public class CartPayFragment extends Fragment {
                     }
                 }
                 System.out.println(itemList.get(3).getQuantity());
-                userSession.getUser().setCart(new ArrayList<>());
+                userSession.getUser().getCart().clear();
                 showDialog();
             }
         }

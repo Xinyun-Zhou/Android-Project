@@ -50,7 +50,7 @@
     "id": 5,
     "name": "Book: Introduction to Algorithms by Thomas H. Cormen 3rd edit",
     "price": 40,
-    "quantity": 1,
+    "quantity": 5,
     "sellerUid": 2
   },
   {
@@ -68,7 +68,7 @@
     "id": 7,
     "name": "Swisse Ultiboost Vitamin D, 400 Capsules",
     "price": 15.5,
-    "quantity": 2,
+    "quantity": 6,
     "sellerUid": 0
   },
   {
@@ -77,7 +77,7 @@
     "id": 8,
     "name": "Paula's Choice Skin Perfecting 2% BHA",
     "price": 45,
-    "quantity": 1,
+    "quantity": 4,
     "sellerUid": 2
   },
   {
