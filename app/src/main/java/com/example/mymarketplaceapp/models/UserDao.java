@@ -24,6 +24,7 @@ import java.util.List;
  */
 public class UserDao implements UserDaoInterface {
     private static UserDao instance;
+    private AVLTree<User> userAVLTree;
 
     private UserDao() {
     }
@@ -111,7 +112,9 @@ public class UserDao implements UserDaoInterface {
      * @return instance of user with given username
      */
     public User searchUser(String username) {
-        AVLTree<User> userAVLTree = getAllUsersAVL();
+        if (userAVLTree == null)
+            userAVLTree = getAllUsersAVL();
+
         Tree<User> result = userAVLTree.find(new User(username));
         if (result != null)
             return result.value;
