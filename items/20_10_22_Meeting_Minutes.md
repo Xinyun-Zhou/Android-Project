@@ -6,7 +6,6 @@
 
 **Present:** Yuxuan Zhao (Ethan), Xinyun Zhou (Rita), Fiona Chu   
 **Absent:** Lachlan Scott 
-
 **Scribe:** Fiona Chu
 
 **Notes**
@@ -22,3 +21,4 @@
     - Rita demonstrating a bug with the cart that still needed fixing
 - Another break to finish coding, working on report, and/or slides
 - Finishing up code submissions
+- Meeting adjourned.
