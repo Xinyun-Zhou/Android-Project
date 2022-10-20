@@ -2,8 +2,8 @@ package com.example.mymarketplaceapp.models;
 
 import android.content.Context;
 
-import com.example.mymarketplaceapp.utils.ContextUtil;
 import com.example.mymarketplaceapp.utils.AVLTree;
+import com.example.mymarketplaceapp.utils.ContextUtil;
 import com.example.mymarketplaceapp.utils.Tree;
 import com.google.gson.Gson;
 
@@ -117,14 +117,5 @@ public class UserDao implements UserDaoInterface {
             return result.value;
         else
             return null;
-    }
-
-    public List<Integer> cartItemsId(String username){
-        ArrayList<Integer> itemsId = new ArrayList<>();
-        User currentUser = searchUser(username);
-        for (CartItem cartItem : currentUser.getCart()){
-            itemsId.add(cartItem.getCartItemId());
-        }
-        return itemsId;
     }
 }

@@ -2,8 +2,8 @@ package com.example.mymarketplaceapp.models;
 
 import android.content.Context;
 
-import com.example.mymarketplaceapp.utils.ContextUtil;
 import com.example.mymarketplaceapp.utils.AVLTree;
+import com.example.mymarketplaceapp.utils.ContextUtil;
 import com.example.mymarketplaceapp.utils.Query;
 import com.google.gson.Gson;
 

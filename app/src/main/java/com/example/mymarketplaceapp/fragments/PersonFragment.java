@@ -52,19 +52,19 @@ public class PersonFragment extends Fragment {
         textView.setText("Hello, "+userSession.getUser().getUsername());
 
         TextView textViewName = (TextView) view.findViewById(R.id.tv_username);
-        textViewName.setText("YOUR USERNAME: \n" + userSession.getUser().getUsername());
+        textViewName.setText("Username: \n" + userSession.getUser().getUsername());
 
         TextView textViewPassword = (TextView) view.findViewById(R.id.tv_password);
-        textViewPassword.setText("YOUR PASSWORD: \n" + userSession.getUser().getPassword());
+        textViewPassword.setText("Password: \n" + userSession.getUser().getPassword());
 
         TextView textViewADDRESS = (TextView) view.findViewById(R.id.tv_address);
-        textViewADDRESS.setText("ADDRESS: \n" + userSession.getUser().getAddress());
+        textViewADDRESS.setText("Address: \n" + userSession.getUser().getAddress());
 
         TextView textViewPostcode = (TextView) view.findViewById(R.id.tv_postcode);
-        textViewPostcode.setText("POSTCODE: \n" + userSession.getUser().getPostcode());
+        textViewPostcode.setText("Postcode: \n" + userSession.getUser().getPostcode());
 
         TextView textViewPhoneNumber = (TextView) view.findViewById(R.id.tv_phone_number);
-        textViewPhoneNumber.setText("PHONE NUMBER: \n" + userSession.getUser().getPhone());
+        textViewPhoneNumber.setText("Phone Number: \n" + userSession.getUser().getPhone());
 
         Button logoutButton = (Button) view.findViewById(R.id.bt_logout);
         logoutButton.setOnClickListener(logoutOnClickListener);

@@ -1,11 +1,10 @@
-package com.example.mymarketplaceapp.Utils;
+package com.example.mymarketplaceapp.utils;
 
 import android.app.Application;
 
-import com.example.mymarketplaceapp.models.UserDao;
-
 /**
  * Get Context in models
+ * (Help the .java files in the models folder get the context to access the assets folder)
  *
  * @author u7366711 Yuxuan Zhao
  */

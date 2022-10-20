@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private Fragment cartFragment = new CartFragment();
     private Fragment sellingFragment = new SellingFragment();
     private Fragment loginNotificationFragment = new LoginNotificationFragment();
-    private UserSession userSession;
 
+    private UserSession userSession;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +34,10 @@ public class MainActivity extends AppCompatActivity {
         initView(savedInstanceState);
         userSession = new UserSession();
 
-        // Pass userSession to loginFragment
+        // Pass userSession to other fragments
         Bundle bundle = new Bundle();
         bundle.putParcelable("userSession", userSession);
+        homeFragment.setArguments(bundle);
         loginFragment.setArguments(bundle);
         personFragment.setArguments(bundle);
         cartFragment.setArguments(bundle);
@@ -71,13 +72,13 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, homeFragment).commit();
                     return true;
                 case R.id.person:
-                    if(userSession.getUserState() instanceof NoSessionState)
+                    if (userSession.getUserState() instanceof NoSessionState)
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, loginFragment).commit();
                     else
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, personFragment).commit();
                     return true;
                 case R.id.cart:
-                    if(userSession.getUserState() instanceof NoSessionState)
+                    if (userSession.getUserState() instanceof NoSessionState)
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, loginNotificationFragment).commit();
                     else
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, cartFragment).commit();

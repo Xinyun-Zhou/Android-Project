@@ -20,7 +20,7 @@
   {
     "category": "ELECTRONICS",
     "description": "Up to 6 hours music per charge, with up to 20 hours including the case; 5.5 x 9 x 9 cm; USB Type-C charging；Noise cancelling and natural ambient sound.",
-    "id ": 2,
+    "id": 2,
     "name": "Earbuds",
     "price": 200,
     "quantity": 1,
@@ -50,7 +50,7 @@
     "id": 5,
     "name": "Book: Introduction to Algorithms by Thomas H. Cormen 3rd edit",
     "price": 40,
-    "quantity": 1,
+    "quantity": 5,
     "sellerUid": 2
   },
   {
@@ -68,7 +68,7 @@
     "id": 7,
     "name": "Swisse Ultiboost Vitamin D, 400 Capsules",
     "price": 15.5,
-    "quantity": 2,
+    "quantity": 6,
     "sellerUid": 0
   },
   {
@@ -77,7 +77,7 @@
     "id": 8,
     "name": "Paula's Choice Skin Perfecting 2% BHA",
     "price": 45,
-    "quantity": 1,
+    "quantity": 4,
     "sellerUid": 2
   },
   {

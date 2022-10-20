@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Grammar:
  * <query>      ::= <item name> | <item name> <filter>
  * <filter>     ::= <criteria> | <criteria> <filter>
  * <criteria>   ::= <category> | <user name> | <price greater> | <price less> | <description>
+ *
+ * @author u7366711 Yuxuan Zhao
  */
 public class Parser {
 
@@ -55,7 +58,11 @@ public class Parser {
     }
 
     public Token parseCriteria() {
-        tokenizer.next();
+        try {
+            tokenizer.next();
+        }catch (Tokenizer.IllegalTokenException e){
+            throw new IllegalProductionException("");
+        }
 
         return tokenizer.current();
     }

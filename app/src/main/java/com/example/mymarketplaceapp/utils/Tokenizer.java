@@ -1,5 +1,20 @@
 package com.example.mymarketplaceapp.utils;
 
+/**
+ * Tokenizer modified from my lab code
+ *
+ * Example:
+ * "uPhone #ELECTRONICS @JB Wi-Fi >1024 <2048 ^bullet-proof"
+ * ->
+ * Token.Type.ITEM_NAME uPhone
+ * Token.Type.CATEGORY ELECTRONICS
+ * Token.Type.USERNAME JB Wi-Fi
+ * Token.Type.MIN_PRICE 1024
+ * Token.Type.MAX_PRICE 2048
+ * Token.Type.Description bullet-proof
+ *
+ * @author u7366711 Yuxuan Zhao
+ */
 public class Tokenizer {
 
     private String buffer;

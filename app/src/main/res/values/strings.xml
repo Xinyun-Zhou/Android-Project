@@ -1,18 +1,18 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cart_fragment_search_from_cart">Search From Chart</string>
-    <string name="cart_fragment_cart_total">TOTAL: $</string>
-    <string name="cart_fragment_next">NEXT</string>
-    <string name="notification_fragment_login_message">You are not login! \nPlease login first!</string>
-    <string name="notification_fragment_login">LOGIN</string>
-    <string name="person_fragment_log_out">LOGOUT</string>
+    <string name="total">Total: $</string>
+    <string name="cart_fragment_next">Next</string>
+    <string name="notification_fragment_login_message">Please log in first.</string>
+    <string name="notification_fragment_login">Log in</string>
+    <string name="person_fragment_log_out">Log out</string>
     <string name="pay_fragment_txt">Please fill out your personal detail</string>
-    <string name="pay_fragment_name">YOUR NAME:</string>
-    <string name="pay_fragment_address">YOUR ADDRESS:</string>
-    <string name="pay_fragment_postcode">YOUR POSTCODE:</string>
-    <string name="pay_fragment_phone">YOUR PHONE NUMBER</string>
-    <string name="pay_fragment_pay">BUY NOW!</string>
+    <string name="pay_fragment_name">Name:</string>
+    <string name="pay_fragment_address">Address:</string>
+    <string name="pay_fragment_postcode">Postcode:</string>
+    <string name="pay_fragment_phone">Phone Number:</string>
+    <string name="pay_fragment_pay">Buy now</string>
+    <string name="cart_no_item">Your cart is empty.</string>
     <string name="item_quantity">Quantity Available</string>
     <string name="item_add_to_cart">Add to cart</string>
     <string name="item_description">Description</string>

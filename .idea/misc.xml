@@ -3,21 +3,42 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/pichu/OneDrive/Documents/Semester 2 2022/COMP2100/Labs/ga-22s2-comp2100-6442/app/src/main/res/layout/fragment_item_page.xml" value="0.25" />
-        <entry key="..\:/Users/pichu/OneDrive/Documents/Semester 2 2022/COMP2100/Labs/ga-22s2-comp2100-6442/app/src/main/res/layout/fragment_login.xml" value="0.1716485507246377" />
-        <entry key="..\:/Users/pichu/OneDrive/Documents/Semester 2 2022/COMP2100/Labs/ga-22s2-comp2100-6442/app/src/main/res/layout/recycler_view_row.xml" value="0.1716485507246377" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.169" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/drawable-v24/send-48px.xml" value="0.1" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/drawable/add_48px.xml" value="0.1" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/drawable/bed_48px.xml" value="0.187" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/drawable/book_48px.xml" value="0.1" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/drawable/face_48px.xml" value="0.1" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/drawable/health_and_safety_48px.xml" value="0.169" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/drawable/home_48px.xml" value="0.169" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/drawable/ic_launcher_background.xml" value="0.169" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/drawable/image_48px.xml" value="0.169" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/drawable/indeterminate_check_box_48px.xml" value="0.1" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/drawable/lunch_dining_48px.xml" value="0.169" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/drawable/menu_48px.xml" value="0.1" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/drawable/more_horiz_48px.xml" value="0.169" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/drawable/person_48px.xml" value="0.169" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/drawable/search_48px.xml" value="0.1" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/drawable/sent_48px.xml" value="0.1" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/drawable/shopping_cart_48px.xml" value="0.169" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/drawable/styler_48px.xml" value="0.169" />
         <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/activity_cart_login_fragment.xml" value="0.2" />
         <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/fragment_cart.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/chat_item_left.xml" value="0.22" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/chat_item_right.xml" value="0.1" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/fragment_cart.xml" value="0.22" />
         <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/fragment_cart_login.xml" value="0.2" />
         <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/fragment_cart_pay.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/fragment_item_detail.xml" value="0.1" />
         <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/fragment_item_list.xml" value="0.2" />
-        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/fragment_login.xml" value="0.1" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/fragment_login.xml" value="0.22" />
         <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/fragment_login_notification.xml" value="0.2" />
         <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/fragment_menu.xml" value="0.2" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/fragment_message.xml" value="0.2" />
         <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/fragment_person.xml" value="0.2" />
-        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/recycler_view_row.xml" value="0.25" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/fragment_selling.xml" value="0.1" />
+        <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/recycler_view_row.xml" value="0.1" />
         <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.2" />
         <entry key="app/src/main/res/drawable/home-48px.xml" value="0.248" />
         <entry key="app/src/main/res/drawable/home_48px.xml" value="0.174" />
@@ -34,12 +55,13 @@
         <entry key="app/src/main/res/layout/fragment_person.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_person_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_scrolling.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/layout/fragment_selling.xml" value="0.21829710144927536" />
         <entry key="app/src/main/res/layout/recycler_view_row.xml" value="0.24322916666666666" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.33177083333333335" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="corretto-17" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
