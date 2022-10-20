@@ -6,6 +6,7 @@
 
 **Present:** Yuxuan Zhao (Ethan), Xinyun Zhou (Rita), Fiona Chu   
 **Absent:** Lachlan Scott 
+
 **Scribe:** Fiona Chu
 
 **Notes**
