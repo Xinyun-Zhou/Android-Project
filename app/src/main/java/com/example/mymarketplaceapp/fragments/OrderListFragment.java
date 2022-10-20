@@ -24,7 +24,12 @@ import com.example.mymarketplaceapp.utils.Query;
 
 import java.util.List;
 
-
+/**
+ * Order List Fragment
+ * Implement a draggable order list
+ *
+ * @author u7366711 Yuxuan Zhao
+ */
 public class OrderListFragment extends Fragment implements RecyclerViewInterface {
     private List<Order> orderList;
     private RecyclerView recyclerView;
@@ -43,9 +48,10 @@ public class OrderListFragment extends Fragment implements RecyclerViewInterface
 
         Bundle bundle = getArguments();
         UserSession userSession = bundle.getParcelable("userSession");
+
+        // get user's order
         OrderManager orderManager = OrderManager.getInstance();
-        List<Order> fullList = orderManager.getOrderList();
-        List<Order> orderList = orderManager.getOrderList(userSession.getUser().getUid());
+        orderList = orderManager.getOrderList(userSession.getUser().getUid());
 
         // Show order list
         recyclerView = view.findViewById(R.id.rv_order_list);

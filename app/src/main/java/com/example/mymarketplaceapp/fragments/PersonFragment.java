@@ -22,7 +22,7 @@ import com.example.mymarketplaceapp.models.UserSession;
 /**
  * The Person Fragment
  * Show personal detail
- * @author u7326123 Rita Zhou
+ * @author u7326123 Rita Zhou, u7366711 Yuxuan Zhao
  */
 public class PersonFragment extends Fragment {
     private UserSession userSession;

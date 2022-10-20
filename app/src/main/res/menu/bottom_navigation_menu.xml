@@ -16,7 +16,7 @@
         android:icon="@drawable/shopping_cart_48px"
         android:title=""/>
     <item
-        android:id="@+id/menu"
+        android:id="@+id/order"
         android:enabled="true"
         android:icon="@drawable/menu_48px"
         android:title=""/>

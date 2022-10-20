@@ -62,6 +62,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.quantityTextView.setVisibility(View.VISIBLE);
         holder.quantityTextView.setText(itemList.get(position).getQuantity() + "");
 
+        // Recycler View rows in cart fragment has quantity
         if (hasQuantity) {
             Item item = itemList.get(position);
             holder.quantityTextView.setVisibility(View.VISIBLE);

@@ -22,7 +22,13 @@ import com.example.mymarketplaceapp.models.UserSession;
 
 import java.util.List;
 
-
+/**
+ * Item Detail Fragment
+ * Show item detail
+ * Click button to add item to cart or contact buyer
+ *
+ * @author u7366711 Yuxuan Zhao, u7326123 Rita Zhou
+ */
 public class ItemDetailFragment extends Fragment {
     UserSession userSession;
     Item item;
@@ -39,7 +45,7 @@ public class ItemDetailFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Get Category or Query from other fragments
+        // get the id of clicked item
         Bundle bundle = getArguments();
         int itemId = bundle.getInt("itemId");
         userSession = bundle.getParcelable("userSession");
@@ -56,10 +62,10 @@ public class ItemDetailFragment extends Fragment {
         sellerTextView.setText("Sold by " + userDao.getUsername(item.getSellerUid()));
         TextView descriptionTextView = (TextView) view.findViewById(R.id.tv_item_detail_description);
         descriptionTextView.setText("Description:" + '\n' + item.getDescription());
-
+        // contact seller
         Button chatButton = view.findViewById(R.id.bt_item_detail_contact);
         chatButton.setOnClickListener(chatOnClickListener);
-
+        // add to cart
         Button addButton = view.findViewById(R.id.bt_item_detail_add);
         addButton.setOnClickListener(addOnClickListener);
     }

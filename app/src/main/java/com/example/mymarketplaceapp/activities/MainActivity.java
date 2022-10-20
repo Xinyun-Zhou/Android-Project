@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseApp.initializeApp(getBaseContext());
 
         initView(savedInstanceState);
+
         userSession = new UserSession();
 
         // Pass userSession to other fragments
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                     else
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, cartFragment).commit();
                     return true;
-                case R.id.menu:
+                case R.id.order:
                     if (userSession.getUserState() instanceof NoSessionState)
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, loginNotificationFragment).commit();
                     else

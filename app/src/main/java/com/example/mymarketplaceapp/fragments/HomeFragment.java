@@ -148,7 +148,14 @@ public class HomeFragment extends Fragment {
         }
     };
 
+    /**
+     * Parse strings in the search box
+     *
+     * @param queryString
+     * @return parsed query
+     */
     private Query parseQuery(String queryString) {
+        // token error
         Tokenizer tokenizer;
         try {
             tokenizer = new Tokenizer(queryString);
@@ -156,7 +163,7 @@ public class HomeFragment extends Fragment {
             Toast.makeText(getContext(), "Invalid query", Toast.LENGTH_LONG).show();
             return null;
         }
-
+        // grammar error
         Query query;
         try {
             query = new Parser(tokenizer).parseQuery();

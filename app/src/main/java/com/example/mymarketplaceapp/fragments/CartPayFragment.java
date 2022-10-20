@@ -110,10 +110,11 @@ public class CartPayFragment extends Fragment {
                     }
                 }
                 System.out.println(itemList.get(3).getQuantity());
+
                 // create order
                 OrderManager orderManager = OrderManager.getInstance();
                 orderManager.createNewOrder(userSession.getUser().getUid(),userSession.getUser().getCart());
-                List<Order> orderList = orderManager.getOrderList();
+
                 // clear cart
                 userSession.getUser().getCart().clear();
                 showDialog();

@@ -67,11 +67,10 @@ public class ItemListFragment extends Fragment implements RecyclerViewInterface 
 
         // Show item list
         recyclerView = view.findViewById(R.id.rv_item_list);
-
+        refreshRecycleView(itemList);
 
         // AVL tree test
         //RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this.getContext(), itemDao.getAllItemsAVL().inOrder());
-        refreshRecycleView(itemList);
 
         // Set listener
         Button button1 = (Button) view.findViewById(R.id.bt_item_list_price_low);

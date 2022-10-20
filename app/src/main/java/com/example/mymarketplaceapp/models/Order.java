@@ -2,6 +2,11 @@ package com.example.mymarketplaceapp.models;
 
 import java.util.List;
 
+/**
+ * Order class
+ *
+ * @author u7366711 Yuxuan Zhao
+ */
 public class Order {
     public enum Type {BUY,SELL}
 
@@ -11,6 +16,14 @@ public class Order {
     private Type orderType;
     private int buyerId;
 
+    /**
+     * Constructor without buyerId
+     *
+     * @param orderId
+     * @param userId
+     * @param orderItemList
+     * @param orderType
+     */
     public Order(int orderId, int userId, List<CartItem> orderItemList, Type orderType){
         this.orderId = orderId;
         this.userId = userId;
