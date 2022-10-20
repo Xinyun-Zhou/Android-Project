@@ -52,11 +52,15 @@
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.13722826086956522" />
         <entry key="app/src/main/res/layout/fragment_login_notification.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/layout/fragment_menu.xml" value="0.18342391304347827" />
+        <entry key="app/src/main/res/layout/fragment_order.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/fragment_order_detail.xml" value="0.19010416666666666" />
+        <entry key="app/src/main/res/layout/fragment_order_list.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/fragment_person.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_person_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_scrolling.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/layout/fragment_selling.xml" value="0.21829710144927536" />
         <entry key="app/src/main/res/layout/recycler_view_row.xml" value="0.24322916666666666" />
+        <entry key="app/src/main/res/layout/recycler_view_row_order.xml" value="0.203125" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.33177083333333335" />
       </map>
     </option>

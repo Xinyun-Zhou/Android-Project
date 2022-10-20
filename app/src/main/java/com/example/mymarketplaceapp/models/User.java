@@ -1,6 +1,7 @@
 package com.example.mymarketplaceapp.models;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -60,6 +61,8 @@ public class User implements Comparable<User> {
     }
 
     public List<CartItem> getCart() {
+        if(cart==null)
+            cart = new ArrayList<>();
         return cart;
     }
 
