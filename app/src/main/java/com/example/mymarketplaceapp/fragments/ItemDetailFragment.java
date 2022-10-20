@@ -16,6 +16,7 @@ import com.example.mymarketplaceapp.models.Item;
 import com.example.mymarketplaceapp.models.ItemDao;
 import com.example.mymarketplaceapp.models.User;
 import com.example.mymarketplaceapp.models.UserDao;
+import com.google.android.material.textfield.TextInputLayout;
 
 
 public class ItemDetailFragment extends Fragment {
@@ -49,4 +50,11 @@ public class ItemDetailFragment extends Fragment {
         TextView descriptionTextView = (TextView) view.findViewById(R.id.tv_item_detail_description);
         descriptionTextView.setText("Description:" + '\n' + item.getDescription());
     }
+
+    private View.OnClickListener addOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+        }
+    };
 }
