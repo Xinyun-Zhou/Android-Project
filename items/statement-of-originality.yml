@@ -10,8 +10,8 @@ declaration: >-
 # add as many "name+comment" entries as necessary
 # (or remove it altogether if you haven't collaborated with anyone outside your group)
 collaboration:
-  - name:
-    comment: >-
+  - name: Kaiyan Zhang
+    comment: (This comment is from Rita Zhou) Kaiyan has studied this course in last semester. His group have implemented the peer-to-peer feature, so I asked him for some help to implement the peer-to-peer feature.
 
 
 # add as many "url+licence+comment" entries as necessary
@@ -65,6 +65,6 @@ members:
     uid: u6659041
   - name: Yuxuan Zhao
     uid: u7366711
-  - name:
-    uid:
+  - name: Rita Zhou
+    uid: u7326123
       
