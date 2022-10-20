@@ -21,6 +21,7 @@ import com.example.mymarketplaceapp.R;
 import com.example.mymarketplaceapp.adapters.MessageAdapter;
 import com.example.mymarketplaceapp.models.Chat;
 import com.example.mymarketplaceapp.models.User;
+import com.example.mymarketplaceapp.models.UserDao;
 import com.example.mymarketplaceapp.models.UserSession;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -39,7 +40,8 @@ import java.util.List;
  * @author Rita Zhou
  */
 public class MessageFragment extends Fragment {
-    private UserSession userSession;
+    String senderID;
+    String receiverID;
 
     View view;
     TextView username;
@@ -66,11 +68,18 @@ public class MessageFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         this.view = view;
 
-        //TODO: FIX THE SENDER AND RECEIVER
-//        Bundle bundle = getArguments();
-//        userSession = bundle.getParcelable("userSession");
+        Bundle bundle = getArguments();
+        UserSession userSession = bundle.getParcelable("userSession");
+        int receiverId = bundle.getInt("receiver");
+        String userName = UserDao.getInstance().getUsername(receiverId);
+        User receiver = UserDao.getInstance().searchUser(userName);
+
+        senderID = String.valueOf(userSession.getUser().getUid());
+        receiverID = String.valueOf(receiver.getUid());
 
         username = view.findViewById(R.id.username);
+        username.setText(userName);
+
         textSent = view.findViewById(R.id.text_send);
         btSent = view.findViewById(R.id.btn_send);
 
@@ -82,14 +91,8 @@ public class MessageFragment extends Fragment {
 
         reference = FirebaseDatabase.getInstance().getReference().child("user");
 
-        if (userSession != null) {
-            senderIDStr = String.valueOf(userSession.getUser().getUid());
-        }
-
         btSent.setOnClickListener(sendMessageOnClickListener);
         reference.addValueEventListener(readChatEventListener);
-
-        username.setText("admin");
     }
 
     private View.OnClickListener sendMessageOnClickListener = new View.OnClickListener() {
@@ -98,7 +101,7 @@ public class MessageFragment extends Fragment {
             String message = textSent.getText().toString();
             if (!message.equals("")){
                 // TODO: FIX THE SENDER AND RECEIVER
-                sendMessage("0", "1", message);
+                sendMessage(senderID, receiverID, message);
             } else{
                 Toast.makeText(getContext(), "Message cannot be empty!", Toast.LENGTH_SHORT).show();
             }
@@ -122,12 +125,8 @@ public class MessageFragment extends Fragment {
     private ValueEventListener readChatEventListener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
-//            User user = snapshot.getValue(User.class);
-//            username.setText(user.getUsername());
-            // TODO: FIX THE SENDER AND RECEIVER
-            readMessage("0", "1");
+            readMessage(senderID, receiverID);
         }
-
         @Override
         public void onCancelled(@NonNull DatabaseError error) {
         }
@@ -151,8 +150,7 @@ public class MessageFragment extends Fragment {
                         chatList.add(chat);
 
                     }
-                    // TODO: FIX THE SENDER
-                    messageAdapter = new MessageAdapter(getActivity(), chatList, "0");
+                    messageAdapter = new MessageAdapter(getActivity(), chatList, senderID);
                     recyclerView.setAdapter(messageAdapter);
                 }
             }

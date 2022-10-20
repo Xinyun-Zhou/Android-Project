@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         // Pass userSession to other fragments
         Bundle bundle = new Bundle();
         bundle.putParcelable("userSession", userSession);
+        homeFragment.setArguments(bundle);
         loginFragment.setArguments(bundle);
         personFragment.setArguments(bundle);
         cartFragment.setArguments(bundle);

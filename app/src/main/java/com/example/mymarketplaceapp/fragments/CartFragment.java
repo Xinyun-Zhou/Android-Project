@@ -40,7 +40,7 @@ public class CartFragment extends Fragment implements RecyclerViewInterface {
     List<Item> itemList;
 //    List<CartItem> itemRequired;
     List<Item> itemListToShow;
-    Cart cart;
+//    Cart cart;
 
     Button btNext;
     RecyclerView recyclerView;
@@ -79,12 +79,14 @@ public class CartFragment extends Fragment implements RecyclerViewInterface {
         itemListToShow = new ArrayList<>();
 
         itemList = ItemDao.getInstance().getItemList();
-        for (Item item : itemList){
-            for (CartItem cartItem : userSession.getUser().getCart()){
-                if (item.getId() == cartItem.getCartItemId()){
-                    Item newItem = item;
-                    newItem.setQuantity(cartItem.getCartItemQuantity());
-                    itemListToShow.add(newItem);
+        if (userSession.getUser().getCart() != null) {
+            for (Item item : itemList) {
+                for (CartItem cartItem : userSession.getUser().getCart()) {
+                    if (item.getId() == cartItem.getCartItemId()) {
+                        Item newItem = item;
+                        newItem.setQuantity(cartItem.getCartItemQuantity());
+                        itemListToShow.add(newItem);
+                    }
                 }
             }
         }

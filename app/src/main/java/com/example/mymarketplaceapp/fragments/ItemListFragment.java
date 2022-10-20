@@ -19,6 +19,7 @@ import com.example.mymarketplaceapp.adapters.RecyclerViewInterface;
 import com.example.mymarketplaceapp.models.Category;
 import com.example.mymarketplaceapp.models.Item;
 import com.example.mymarketplaceapp.models.ItemDao;
+import com.example.mymarketplaceapp.models.UserSession;
 import com.example.mymarketplaceapp.utils.Query;
 
 import java.util.Collections;
@@ -35,6 +36,7 @@ public class ItemListFragment extends Fragment implements RecyclerViewInterface 
     private List<Item> itemList;
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
+    UserSession userSession;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,6 +52,7 @@ public class ItemListFragment extends Fragment implements RecyclerViewInterface 
         // Get Category or Query from other fragments
         Bundle bundle = getArguments();
         int categoryIndex = bundle.getInt("Category");
+        userSession = bundle.getParcelable("userSession");
         Query query = bundle.getParcelable("Query");
 
         // Select items
@@ -134,6 +137,7 @@ public class ItemListFragment extends Fragment implements RecyclerViewInterface 
         // Pass the id of clicked item
         Bundle bundle = new Bundle();
         bundle.putInt("itemId", itemList.get(position).getId());
+        bundle.putParcelable("userSession", userSession);
         ItemDetailFragment itemDetailFragment = new ItemDetailFragment();
         itemDetailFragment.setArguments(bundle);
         getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer, itemDetailFragment).commit();

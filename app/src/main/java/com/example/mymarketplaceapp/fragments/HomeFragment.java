@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.mymarketplaceapp.R;
 import com.example.mymarketplaceapp.activities.MainActivity;
 import com.example.mymarketplaceapp.models.Category;
+import com.example.mymarketplaceapp.models.UserSession;
 import com.example.mymarketplaceapp.utils.Parser;
 import com.example.mymarketplaceapp.utils.Query;
 import com.example.mymarketplaceapp.utils.Token;
@@ -33,6 +34,7 @@ import com.google.android.material.textfield.TextInputLayout;
  */
 public class HomeFragment extends Fragment {
     View view;
+    UserSession userSession;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,20 +47,12 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        Bundle bundle = getArguments();
+        userSession = bundle.getParcelable("userSession");
+
         this.view = view;
         setListeners();
-
-        Button chatTest = view.findViewById(R.id.bt_chat_test);
-        chatTest.setOnClickListener(chatOnClickListener);
     }
-
-    private View.OnClickListener chatOnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            MessageFragment messageFragment = new MessageFragment();
-            getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer, messageFragment).commit();
-        }
-    };
 
     private void setListeners() {
         // category buttons
@@ -88,6 +82,7 @@ public class HomeFragment extends Fragment {
         @Override
         public void onClick(View v) {
             Bundle bundle = new Bundle();
+            bundle.putParcelable("userSession", userSession);
             switch (v.getId()) {
                 case R.id.bt_home_category_0:
                     bundle.putInt("Category", 0);
