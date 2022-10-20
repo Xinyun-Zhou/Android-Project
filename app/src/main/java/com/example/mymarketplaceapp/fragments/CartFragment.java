@@ -126,6 +126,13 @@ public class CartFragment extends Fragment implements RecyclerViewInterface {
 
     @Override
     public void onItemClick(int position) {
+        // Pass the id of clicked item
+        Bundle bundle = new Bundle();
+        bundle.putInt("itemId", itemListToShow.get(position).getId());
+        bundle.putParcelable("userSession", userSession);
+        ItemDetailFragment itemDetailFragment = new ItemDetailFragment();
+        itemDetailFragment.setArguments(bundle);
+        getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer, itemDetailFragment).commit();
     }
 
 //    private ValueEventListener findUsersValueEventListener = new ValueEventListener() {

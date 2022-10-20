@@ -22,6 +22,8 @@ import com.example.mymarketplaceapp.models.Cart;
 import com.example.mymarketplaceapp.models.CartItem;
 import com.example.mymarketplaceapp.models.Item;
 import com.example.mymarketplaceapp.models.ItemDao;
+import com.example.mymarketplaceapp.models.Order;
+import com.example.mymarketplaceapp.models.OrderManager;
 import com.example.mymarketplaceapp.models.User;
 import com.example.mymarketplaceapp.models.UserSession;
 import com.google.android.material.textfield.TextInputLayout;
@@ -108,6 +110,11 @@ public class CartPayFragment extends Fragment {
                     }
                 }
                 System.out.println(itemList.get(3).getQuantity());
+                // create order
+                OrderManager orderManager = OrderManager.getInstance();
+                orderManager.createNewOrder(userSession.getUser().getUid(),userSession.getUser().getCart());
+                List<Order> orderList = orderManager.getOrderList();
+                // clear cart
                 userSession.getUser().getCart().clear();
                 showDialog();
             }
