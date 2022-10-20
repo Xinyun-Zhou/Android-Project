@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/pichu/OneDrive/Documents/Semester 2 2022/COMP2100/Labs/ga-22s2-comp2100-6442/app/src/main/res/layout/fragment_item_page.xml" value="0.25" />
+        <entry key="..\:/Users/pichu/OneDrive/Documents/Semester 2 2022/COMP2100/Labs/ga-22s2-comp2100-6442/app/src/main/res/layout/fragment_login.xml" value="0.1716485507246377" />
+        <entry key="..\:/Users/pichu/OneDrive/Documents/Semester 2 2022/COMP2100/Labs/ga-22s2-comp2100-6442/app/src/main/res/layout/recycler_view_row.xml" value="0.1716485507246377" />
         <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/activity_cart_login_fragment.xml" value="0.2" />
         <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/zxyap/ANU/2022_S2/COMP2100/group/group-checkpoint1/ga-22s2-comp2100-6442/app/src/main/res/layout/fragment_cart.xml" value="0.3333333333333333" />
@@ -36,7 +39,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="corretto-17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

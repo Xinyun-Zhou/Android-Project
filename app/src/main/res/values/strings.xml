@@ -13,4 +13,10 @@
     <string name="pay_fragment_postcode">YOUR POSTCODE:</string>
     <string name="pay_fragment_phone">YOUR PHONE NUMBER</string>
     <string name="pay_fragment_pay">BUY NOW!</string>
+    <string name="item_quantity">Quantity Available</string>
+    <string name="item_add_to_cart">Add to cart</string>
+    <string name="item_description">Description</string>
+    <string name="item_price">Price</string>
+    <string name="item_seller">Seller</string>
+    <string name="item_category">Category</string>
 </resources>
