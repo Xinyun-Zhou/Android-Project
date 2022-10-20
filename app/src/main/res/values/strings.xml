@@ -1,5 +1,4 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cart_fragment_search_from_cart">Search From Chart</string>
     <string name="total">TOTAL: $</string>

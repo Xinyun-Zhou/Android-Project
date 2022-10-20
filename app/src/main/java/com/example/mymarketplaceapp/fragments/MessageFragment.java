@@ -100,7 +100,6 @@ public class MessageFragment extends Fragment {
         public void onClick(View view) {
             String message = textSent.getText().toString();
             if (!message.equals("")){
-                // TODO: FIX THE SENDER AND RECEIVER
                 sendMessage(senderID, receiverID, message);
             } else{
                 Toast.makeText(getContext(), "Message cannot be empty!", Toast.LENGTH_SHORT).show();
