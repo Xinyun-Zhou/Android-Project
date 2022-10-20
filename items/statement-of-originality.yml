@@ -17,9 +17,15 @@ collaboration:
 # add as many "url+licence+comment" entries as necessary
 # (or remove it altogether if you haven't used any external code)
 code:
-  - comment:
-    url:
-    licence:
+  - comment: "Lab code: BinarySearchTree"
+    url: https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/utils/BinarySearchTree.java
+    licence: fair use
+  - comment: "Lab code: Tree"
+    url: https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/utils/Tree.java
+    licence: fair use
+  - comment: "Lab code: EmptyTree"
+    url: https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/utils/EmptyTree.java
+    licence: fair use     
 
 
 # add as many "url+licence+comment" entries as necessary
