@@ -5,6 +5,11 @@ import android.os.Parcelable;
 
 import java.util.List;
 
+/**
+ * Cart Class
+ * Link the user and item together
+ * @author u7326123 Rita Zhou
+ */
 public class Cart implements Parcelable {
     private UserSession userSession;
     private List<Item> item;

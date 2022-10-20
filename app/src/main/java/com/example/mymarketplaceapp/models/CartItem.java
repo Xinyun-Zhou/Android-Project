@@ -1,7 +1,9 @@
 package com.example.mymarketplaceapp.models;
 
-import java.util.Map;
-
+/**
+ * Get Cart Item in User
+ * @author u7326123 Rita Zhou
+ */
 public class CartItem {
     public int id;
     public int quantity;

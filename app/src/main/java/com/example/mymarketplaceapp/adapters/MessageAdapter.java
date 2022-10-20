@@ -21,6 +21,8 @@ import java.util.List;
  * @author u7326123 Rita Zhou
  */
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHolder> {
+    // set the different version of recycler view
+    // show the message's sender and receiver
     public static final int MSG_TYPE_LEFT = 0;
     public static final int MSG_TYPE_RIGHT = 1;
 
@@ -39,6 +41,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
      * receiver's message on the left
      *
      * @return the message adapter
+     * @author u7326123 Rita Zhou
      */
     @NonNull
     @Override
@@ -77,6 +80,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
      * check the sender and receiver
      *
      * @return different state of the chat
+     * @author u7326123 Rita Zhou
      */
     @Override
     public int getItemViewType(int position) {

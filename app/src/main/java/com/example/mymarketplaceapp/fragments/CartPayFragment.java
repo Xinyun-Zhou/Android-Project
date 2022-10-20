@@ -2,7 +2,6 @@ package com.example.mymarketplaceapp.fragments;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.media.browse.MediaBrowser;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,18 +17,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mymarketplaceapp.R;
-import com.example.mymarketplaceapp.models.Cart;
 import com.example.mymarketplaceapp.models.CartItem;
 import com.example.mymarketplaceapp.models.Item;
 import com.example.mymarketplaceapp.models.ItemDao;
-import com.example.mymarketplaceapp.models.Order;
 import com.example.mymarketplaceapp.models.OrderManager;
-import com.example.mymarketplaceapp.models.User;
 import com.example.mymarketplaceapp.models.UserDao;
 import com.example.mymarketplaceapp.models.UserSession;
-import com.google.android.material.textfield.TextInputLayout;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -64,6 +58,8 @@ public class CartPayFragment extends Fragment {
         Bundle bundle = getArguments();
         userSession = bundle.getParcelable("userSession");
         itemList = ItemDao.getInstance().getItemList();
+
+        // calculate the total cost and display on the view
         double total = 0;
         for (Item item : itemList){
             for (CartItem cartItem : userSession.getUser().getCart()){
@@ -72,6 +68,10 @@ public class CartPayFragment extends Fragment {
                 }
             }
         }
+
+        // set the default input
+        totalAmount = view.findViewById(R.id.tv_total_pay);
+        totalAmount.setText("Total: $ " + String.format("%.2f",total));
 
         inputName = view.findViewById(R.id.et_type_name);
         inputName.setText(userSession.getUser().getUsername());
@@ -84,33 +84,31 @@ public class CartPayFragment extends Fragment {
 
         inputPhone = view.findViewById(R.id.et_type_phone);
 
-        totalAmount = view.findViewById(R.id.tv_total_pay);
-        totalAmount.setText("Total: $ " + String.format("%.2f",total));
-
         Button buttonPay = view.findViewById(R.id.bt_cart_pay);
         buttonPay.setOnClickListener(payOnClickListener);
 
     }
 
     public View.OnClickListener payOnClickListener = new View.OnClickListener() {
+        /**
+         * finish the payment
+         * @author u7326123 Rita Zhou, u7366711 Yuxuan Zhao
+         */
         @Override
         public void onClick(View view) {
+            // if any input is empty, create a toast to make a notice
             if (inputName.length() == 0 || inputAddress.length() == 0 || inputPostcode.length() == 0 || inputPhone.length() == 0){
                 Toast.makeText(view.getContext(), "Please fill out your detail", Toast.LENGTH_LONG).show();
             }
-            // TODO: Fix Data Updates
             else{
+                // make changes for the stock in seller
                 for (Item item : itemList){
                     for (CartItem cartItem : userSession.getUser().getCart()){
                         if (item.getId() == cartItem.getCartItemId()){
-                            System.out.println(cartItem.getCartItemQuantity());
-                            System.out.println(item.getQuantity());
                             item.setQuantity(item.getQuantity() - cartItem.getCartItemQuantity());
-                            System.out.println(item.getQuantity());
                         }
                     }
                 }
-                System.out.println(itemList.get(3).getQuantity());
 
                 // create order
                 OrderManager orderManager = OrderManager.getInstance();
@@ -125,6 +123,10 @@ public class CartPayFragment extends Fragment {
         }
     };
 
+    /**
+     * Create a dialog to show the payment success
+     * @author u7326123 Rita Zhou
+     */
     private void showDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Payment Complete!");

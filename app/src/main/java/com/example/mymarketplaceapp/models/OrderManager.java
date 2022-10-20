@@ -1,7 +1,5 @@
 package com.example.mymarketplaceapp.models;
 
-import android.content.ClipData;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

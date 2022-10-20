@@ -1,5 +1,10 @@
 package com.example.mymarketplaceapp.models;
 
+/**
+ * Chat Class
+ * Load and store the message between sender and receiver
+ * @author u7326123 Rita Zhou
+ */
 public class Chat {
     private String sender;
     private String receiver;

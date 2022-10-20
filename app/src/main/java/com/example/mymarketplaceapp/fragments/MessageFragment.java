@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -37,7 +36,7 @@ import java.util.List;
 /**
  * The Massage Fragment
  * Feature: Peer to Peer Messaging
- * @author Rita Zhou
+ * @author u7326123 Rita Zhou
  */
 public class MessageFragment extends Fragment {
     String senderID;
@@ -50,7 +49,6 @@ public class MessageFragment extends Fragment {
 
     MessageAdapter messageAdapter;
     List<Chat> chatList;
-    String senderIDStr;
 
     DatabaseReference reference;
 
@@ -68,6 +66,7 @@ public class MessageFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         this.view = view;
 
+        // get the sender and receiver
         Bundle bundle = getArguments();
         UserSession userSession = bundle.getParcelable("userSession");
         int receiverId = bundle.getInt("receiver");
@@ -77,18 +76,21 @@ public class MessageFragment extends Fragment {
         senderID = String.valueOf(userSession.getUser().getUid());
         receiverID = String.valueOf(receiver.getUid());
 
+        // set the receiver's name on the top of the screen
         username = view.findViewById(R.id.username);
         username.setText(userName);
 
         textSent = view.findViewById(R.id.text_send);
         btSent = view.findViewById(R.id.btn_send);
 
+        // show the message, from bottom to top
         recyclerView = view.findViewById(R.id.rv_chat_list);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager  = new LinearLayoutManager(getContext());
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
 
+        // get the data from the firebase
         reference = FirebaseDatabase.getInstance().getReference().child("user");
 
         btSent.setOnClickListener(sendMessageOnClickListener);
@@ -96,6 +98,9 @@ public class MessageFragment extends Fragment {
     }
 
     private View.OnClickListener sendMessageOnClickListener = new View.OnClickListener() {
+        /**
+         * Check send message is valid
+         */
         @Override
         public void onClick(View view) {
             String message = textSent.getText().toString();
@@ -108,6 +113,12 @@ public class MessageFragment extends Fragment {
         }
     };
 
+    /**
+     * Update the date to the firebase
+     * @param sender the sender uid in string
+     * @param receiver the receiver uid in string
+     * @param message the message want to send
+     */
     private void sendMessage(String sender, String receiver, String message){
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
@@ -118,10 +129,14 @@ public class MessageFragment extends Fragment {
         hashMap.put("message", message);
         hashMap.put("timestamp", ServerValue.TIMESTAMP);
 
+        // update
         reference.child("chats").push().setValue(hashMap);
     }
 
     private ValueEventListener readChatEventListener = new ValueEventListener() {
+        /**
+         * read the data in firebase
+         */
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
             readMessage(senderID, receiverID);
@@ -131,24 +146,33 @@ public class MessageFragment extends Fragment {
         }
     };
 
+    /**
+     * Load the data in firebase and show on the recycler view
+     * @param myId the sender's uid in string
+     * @param userid the receiver's uid in string
+     */
     private void readMessage(String myId, String userid) {
         chatList = new ArrayList<>();
 
+        // load data from firebase
         reference = FirebaseDatabase.getInstance().getReference("chats");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 chatList.clear();
+                // loop all chat history
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     Chat chat = ds.getValue(Chat.class);
 
                     assert chat != null;
+                    // find the chat history between sender and receiver
                     if ((chat.getSender().equals(myId) && chat.getReceiver().equals(userid)) ||
                             (chat.getSender().equals(userid) && chat.getReceiver().equals(myId))
                     ) {
                         chatList.add(chat);
 
                     }
+                    // send data to adapter to make the message visiable
                     messageAdapter = new MessageAdapter(getActivity(), chatList, senderID);
                     recyclerView.setAdapter(messageAdapter);
                 }

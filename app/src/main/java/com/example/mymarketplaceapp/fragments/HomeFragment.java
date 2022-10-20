@@ -16,15 +16,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mymarketplaceapp.R;
-import com.example.mymarketplaceapp.activities.MainActivity;
-import com.example.mymarketplaceapp.models.Category;
 import com.example.mymarketplaceapp.models.UserSession;
 import com.example.mymarketplaceapp.utils.Parser;
 import com.example.mymarketplaceapp.utils.Query;
 import com.example.mymarketplaceapp.utils.Token;
 import com.example.mymarketplaceapp.utils.Tokenizer;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
 /**
  * Home Fragment

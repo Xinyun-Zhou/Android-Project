@@ -14,13 +14,10 @@ import android.view.ViewGroup;
 
 import com.example.mymarketplaceapp.R;
 import com.example.mymarketplaceapp.adapters.OrderRecyclerViewAdapter;
-import com.example.mymarketplaceapp.adapters.RecyclerViewAdapter;
 import com.example.mymarketplaceapp.adapters.RecyclerViewInterface;
-import com.example.mymarketplaceapp.models.Item;
 import com.example.mymarketplaceapp.models.Order;
 import com.example.mymarketplaceapp.models.OrderManager;
 import com.example.mymarketplaceapp.models.UserSession;
-import com.example.mymarketplaceapp.utils.Query;
 
 import java.util.List;
 

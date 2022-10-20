@@ -5,16 +5,13 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 
 import com.example.mymarketplaceapp.R;
-import com.example.mymarketplaceapp.models.User;
 import com.example.mymarketplaceapp.models.UserSession;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -36,9 +33,6 @@ public class LoginFragment extends Fragment {
 
     /**
      * Get userSession from MainActivity and set listener
-     *
-     * @param view
-     * @param savedInstanceState
      */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

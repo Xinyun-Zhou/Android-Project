@@ -29,6 +29,7 @@ import java.util.List;
  * @author u7366711 Yuxuan Zhao, u7326123 Rita Zhou
  */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
+    // set recyclerViewInterface to help click on itme
     private final RecyclerViewInterface recyclerViewInterface;
 
     Context context;
@@ -59,9 +60,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         // price to two decimal places
         holder.priceTextView.setText("$ " + String.format("%.2f", itemList.get(position).getPrice()));
 
-        holder.quantityTextView.setVisibility(View.VISIBLE);
-        holder.quantityTextView.setText(itemList.get(position).getQuantity() + "");
-
         // Recycler View rows in cart fragment has quantity
         if (hasQuantity) {
             Item item = itemList.get(position);
@@ -80,27 +78,46 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
     }
 
+    /**
+     * The selected item's quantity plus one
+     * @param holder make change in view
+     * @param getItem the item change quantity
+     * @author u7326123 Rita Zhou
+     */
     private void plusCartItem(MyViewHolder holder, Item getItem) {
-        List<Item> allItem = ItemDao.getInstance().getAllItems();
-
+        //Find the item with the maximum quantity
+        List<Item> allItem = ItemDao.getInstance().getItemList();
         for (Item item : allItem) {
             if (item.getId() == getItem.getId()) {
                 int getStockForItem = item.getQuantity();
+
+                // comparing the quantity and the maximum
                 for (CartItem cartItem : userSession.getUser().getCart()) {
                     if (cartItem.getCartItemId() == getItem.getId()) {
+
+                        // this item is out of stock
                         if (getStockForItem == 0) {
                             getItem.setQuantity(0);
                             cartItem.setCartItemQuantity(0);
                             holder.quantityTextView.setText(cartItem.getCartItemQuantity() + "");
                             Toast.makeText(context, "No stock for this item", Toast.LENGTH_LONG).show();
-                        } else if (getStockForItem < getItem.getQuantity()) {
+                        }
+
+                        // the stock is not enough for user
+                        else if (getStockForItem < getItem.getQuantity()) {
                             getItem.setQuantity(getStockForItem);
                             cartItem.setCartItemQuantity(getStockForItem);
                             holder.quantityTextView.setText(cartItem.getCartItemQuantity() + "");
                             Toast.makeText(context, "Stock not enough", Toast.LENGTH_LONG).show();
-                        } else if (getStockForItem == getItem.getQuantity()) {
+                        }
+
+                        // the selected quantity is get maximum
+                        else if (getStockForItem == getItem.getQuantity()) {
                             Toast.makeText(context, "You get maximum of this item", Toast.LENGTH_LONG).show();
-                        } else {
+                        }
+
+                        // else, plus one for the current quantity
+                        else {
                             getItem.setQuantity(getItem.getQuantity() + 1);
                             cartItem.setCartItemQuantity(getItem.getQuantity());
                             holder.quantityTextView.setText(cartItem.getCartItemQuantity() + "");
@@ -111,27 +128,46 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
     }
 
+    /**
+     * The selected items quantity minus one
+     * @param holder make change in view
+     * @param getItem the item change quantity
+     * @author u7326123 Rita Zhou
+     */
     private void minusCartItem(MyViewHolder holder, Item getItem) {
-        List<Item> allItem = ItemDao.getInstance().getAllItems();
-
+        // check if the selected item's quantity is greater than stock
+        List<Item> allItem = ItemDao.getInstance().getItemList();
         for (Item item : allItem) {
             if (item.getId() == getItem.getId()) {
                 int getStockForItem = item.getQuantity();
+
+                // comparing the stock and quantity
                 for (CartItem cartItem : userSession.getUser().getCart()) {
                     if (cartItem.getCartItemId() == getItem.getId()) {
+
+                        // the quantity can't be a negative number
                         if (getItem.getQuantity() == 0) {
                             Toast.makeText(context, "Please choose a number more than 0", Toast.LENGTH_LONG).show();
-                        } else if (getStockForItem < getItem.getQuantity()) {
+                        }
+
+                        // if the stock is not enough
+                        else if (getStockForItem < getItem.getQuantity()) {
                             getItem.setQuantity(getStockForItem);
                             cartItem.setCartItemQuantity(getStockForItem);
                             holder.quantityTextView.setText(cartItem.getCartItemQuantity() + "");
                             Toast.makeText(context, "Stock not enough", Toast.LENGTH_LONG).show();
-                        } else if (getStockForItem == 0) {
+                        }
+
+                        // if the item is out of stock
+                        else if (getStockForItem == 0) {
                             getItem.setQuantity(0);
                             cartItem.setCartItemQuantity(0);
                             holder.quantityTextView.setText(cartItem.getCartItemQuantity() + "");
                             Toast.makeText(context, "This item is out of stock", Toast.LENGTH_LONG).show();
-                        } else {
+                        }
+
+                        // else, the item's quantity minus 1
+                        else {
                             getItem.setQuantity(getItem.getQuantity() - 1);
                             cartItem.setCartItemQuantity(getItem.getQuantity());
                             holder.quantityTextView.setText(cartItem.getCartItemQuantity() + "");
@@ -162,6 +198,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
             btMinus = itemView.findViewById(R.id.btn_minus_item);
             btPlus = itemView.findViewById(R.id.btn_plus_item);
+
+            // set item click listener
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

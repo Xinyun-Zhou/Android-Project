@@ -1,6 +1,5 @@
 package com.example.mymarketplaceapp.fragments;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -37,9 +36,6 @@ public class PersonFragment extends Fragment {
 
     /**
      * Get userSession from LoginFragment
-     *
-     * @param view
-     * @param savedInstanceState
      */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -57,6 +53,7 @@ public class PersonFragment extends Fragment {
         if(avatarId!=0)
             avatar.setImageDrawable(getResources().getDrawable(avatarId));
 
+        // display user's detail
         TextView textView = (TextView) view.findViewById(R.id.tv_person_hello);
         textView.setText("Hello, "+userSession.getUser().getUsername());
 
@@ -80,6 +77,10 @@ public class PersonFragment extends Fragment {
     }
 
     public View.OnClickListener logoutOnClickListener = new View.OnClickListener() {
+        /**
+         * log out
+         * @author u7326123 Rita Zhou
+         */
         @Override
         public void onClick(View view) {
             if (userSession.logout()) {

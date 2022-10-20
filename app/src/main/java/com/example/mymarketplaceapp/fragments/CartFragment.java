@@ -18,7 +18,6 @@ import android.widget.TextView;
 import com.example.mymarketplaceapp.R;
 import com.example.mymarketplaceapp.adapters.RecyclerViewAdapter;
 import com.example.mymarketplaceapp.adapters.RecyclerViewInterface;
-import com.example.mymarketplaceapp.models.Cart;
 import com.example.mymarketplaceapp.models.CartItem;
 import com.example.mymarketplaceapp.models.Item;
 import com.example.mymarketplaceapp.models.ItemDao;
@@ -57,9 +56,6 @@ public class CartFragment extends Fragment implements RecyclerViewInterface {
 
     /**
      * Show the user's cart
-     *
-     * @param view
-     * @param savedInstanceState
      * @author u7326123 Rita Zhou
      */
     @Override
@@ -68,26 +64,33 @@ public class CartFragment extends Fragment implements RecyclerViewInterface {
 
         this.view = view;
 
+        // get user
         Bundle bundle = getArguments();
         userSession = bundle.getParcelable("userSession");
-        itemListToShow = new ArrayList<>();
 
+        // get items show on the cart
+        itemListToShow = new ArrayList<>();
+        // get total amount
         total = 0.0;
+        // add the items details to show on the cart
         itemList = ItemDao.getInstance().getItemList();
         if (userSession.getUser().getCart() != null) {
             for (Item item : itemList) {
                 for (CartItem cartItem : userSession.getUser().getCart()) {
                     if (item.getId() == cartItem.getCartItemId()) {
+                        // get the required item's detail
                         Item newItem = new Item(item.getId(), item.getName(), item.getPrice(), item.getQuantity(), item.getSellerUid(), item.getCategory(), item.getDescription());
                         if (item.getQuantity() >= cartItem.getCartItemQuantity())
                             newItem.setQuantity(cartItem.getCartItemQuantity());
                         itemListToShow.add(newItem);
+                        // calculate the total amount
                         total += itemListToShow.get(itemListToShow.size()-1).getPrice() * itemListToShow.get(itemListToShow.size()-1).getQuantity();
                     }
                 }
             }
         }
 
+        // notice the user if the current cart is empty
         if (itemListToShow.size() == 0){
             noItemShow = view.findViewById(R.id.tv_cart_no_item);
             noItemShow.setVisibility(View.VISIBLE);
@@ -104,6 +107,11 @@ public class CartFragment extends Fragment implements RecyclerViewInterface {
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
     }
+
+    /**
+     * Next button, Go to next page, fill out the detail of current user
+     * @author u7326123 Rita Zhou
+     */
     private View.OnClickListener nextPageOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -117,6 +125,11 @@ public class CartFragment extends Fragment implements RecyclerViewInterface {
         }
     };
 
+    /**
+     * When the item is click, go to the item's detail page
+     * @param position the list number of recycler view
+     * @author u7366711 Yuxuan Zhao
+     */
     @Override
     public void onItemClick(int position) {
         // Pass the id of clicked item

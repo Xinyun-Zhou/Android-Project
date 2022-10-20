@@ -1,12 +1,10 @@
 package com.example.mymarketplaceapp.models;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Session State (user has signed in)
  *
- * @author u7366711 Yuxuan Zhao
+ * @author u7366711 Yuxuan Zhao, u7326123 Rita Zhou
  */
 public class SessionState extends UserState {
 

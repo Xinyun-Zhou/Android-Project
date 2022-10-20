@@ -13,6 +13,10 @@ import com.example.mymarketplaceapp.fragments.*;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.FirebaseApp;
 
+/**
+ * Main Activity
+ * @author u7366711 Yuxuan Zhao
+ */
 public class MainActivity extends AppCompatActivity {
     private NavigationBarView navigationBarView;
     private Fragment homeFragment = new HomeFragment();
@@ -29,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // initialize the firebase
         FirebaseApp.initializeApp(getBaseContext());
 
         initView(savedInstanceState);

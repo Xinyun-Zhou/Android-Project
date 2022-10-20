@@ -7,7 +7,7 @@ import android.os.Parcelable;
  * User Session
  * User Session defaults to NoSessionState and changes to SessionState after successful login
  *
- * @author u7366711 Yuxuan Zhao
+ * @author u7366711 Yuxuan Zhao, u7326123 Rita Zhou
  */
 public class UserSession implements Parcelable {
     UserState userState;
@@ -23,6 +23,13 @@ public class UserSession implements Parcelable {
         this.userState = state;
     }
 
+    /**
+     * log in, change userSession
+     * @param username user name input
+     * @param password password input
+     * @return the login is success or not
+     * @author u7366711 Yuxuan Zhao
+     */
     public boolean login(String username, String password) {
         user = userState.login(username, password);
         if (user != null)
@@ -31,6 +38,11 @@ public class UserSession implements Parcelable {
         return user != null ? true : false;
     }
 
+    /**
+     * log out, change userSession
+     * @return if the log out is success or not
+     * @author u7326123 Rita Zhou
+     */
     public boolean logout(){
         if (userState.logout()) {
             user = new User();
