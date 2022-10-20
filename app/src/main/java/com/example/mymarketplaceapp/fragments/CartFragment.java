@@ -79,23 +79,14 @@ public class CartFragment extends Fragment implements RecyclerViewInterface {
         itemListToShow = new ArrayList<>();
 
         itemList = ItemDao.getInstance().getItemList();
-<<<<<<< HEAD
         if (userSession.getUser().getCart() != null) {
             for (Item item : itemList) {
                 for (CartItem cartItem : userSession.getUser().getCart()) {
                     if (item.getId() == cartItem.getCartItemId()) {
-                        Item newItem = item;
+                        Item newItem = new Item(item.getId(), item.getName(), item.getPrice(), item.getQuantity(), item.getSellerUid(), item.getCategory(), item.getDescription());
                         newItem.setQuantity(cartItem.getCartItemQuantity());
                         itemListToShow.add(newItem);
                     }
-=======
-        for (Item item : itemList){
-            for (CartItem cartItem : userSession.getUser().getCart()){
-                if (item.getId() == cartItem.getCartItemId()){
-                    Item newItem = new Item(item.getId(),item.getName(),item.getPrice(),item.getQuantity(),item.getSellerUid(),item.getCategory(),item.getDescription());
-                    newItem.setQuantity(cartItem.getCartItemQuantity());
-                    itemListToShow.add(newItem);
->>>>>>> 0970164c81cdf9a8114d28f8accaea30517fbc01
                 }
             }
         }

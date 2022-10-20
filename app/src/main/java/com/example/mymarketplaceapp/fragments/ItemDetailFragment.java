@@ -18,12 +18,9 @@ import com.example.mymarketplaceapp.models.Item;
 import com.example.mymarketplaceapp.models.ItemDao;
 import com.example.mymarketplaceapp.models.User;
 import com.example.mymarketplaceapp.models.UserDao;
-<<<<<<< HEAD
 import com.example.mymarketplaceapp.models.UserSession;
 import com.example.mymarketplaceapp.utils.Token;
-=======
 import com.google.android.material.textfield.TextInputLayout;
->>>>>>> 0970164c81cdf9a8114d28f8accaea30517fbc01
 
 
 public class ItemDetailFragment extends Fragment {
@@ -64,7 +61,6 @@ public class ItemDetailFragment extends Fragment {
         chatButton.setOnClickListener(chatOnClickListener);
     }
 
-<<<<<<< HEAD
     private View.OnClickListener chatOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -81,12 +77,14 @@ public class ItemDetailFragment extends Fragment {
                 messageFragment.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer, messageFragment).commit();
             }
-=======
+        }
+    };
+
+
     private View.OnClickListener addOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
 
->>>>>>> 0970164c81cdf9a8114d28f8accaea30517fbc01
         }
     };
 }
