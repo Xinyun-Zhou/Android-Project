@@ -25,18 +25,40 @@ code:
 # add as many "url+licence+comment" entries as necessary
 # (or remove it altogether if you haven't used any external assets)
 assets:
-  # NOTE: "Bliss" is just here as an example, you SHOULD REMOVE IT
-  - comment: "_Bliss_ by Charles O'Rear"
-    url: https://en.wikipedia.org/wiki/Bliss_(image)
+  - comment: "Material Design Components for Android"
+    url: https://m3.material.io/
     licence: fair use
+  - comment: "icons"
+    url: https://fonts.google.com/icons
+    licence: fair use  
+  - comment: "avatar_0.jpg"
+    url: https://unsplash.com/photos/nKC772R_qog
+    licence: fair use
+  - comment: "avatar_1.jpg"
+    url: https://unsplash.com/photos/u_kMWN-BWyU
+    licence: fair use
+  - comment: "avatar_2.jpg"
+    url: https://unsplash.com/photos/ybHtKz5He9Y
+    licence: fair use
+  - comment: "avatar_3.jpg"
+    url: https://unsplash.com/photos/fFO5DsFV5gk
+    licence: fair use
+  - comment: "avatar_4.jpg"
+    url: https://unsplash.com/photos/aeNg4YA41P8
+    licence: fair use
+  - comment: "avatar_5.jpg"
+    url: https://unsplash.com/photos/l_eSPV-eW8o
+    licence: fair use
+  
+  
 
 # for each member, write your name and uid here
 # remove any empty "name+uid" entries
 members:
   - name: Fiona Chu
     uid: u6659041
-  - name:
-    uid:
+  - name: Yuxuan Zhao
+    uid: u7366711
   - name:
     uid:
   - name:
