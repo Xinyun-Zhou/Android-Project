@@ -1,4 +1,4 @@
-﻿**COMP2100 Group Assignment Meeting**
+**COMP2100 Group Assignment Meeting**
 
 **Date:** 15/10/2022
 
@@ -6,9 +6,11 @@
 
 **Present:**
 
-Xinyun (Rita) Zhou Yuxuan (Ethan) Zhao Fiona Chu
+Xinyun (Rita) Zhou, Yuxuan (Ethan) Zhao, Fiona Chu
 
 **Absent:** Lachlan Scott
+
+**Scribe:** Fiona Chu
 
 **Agenda**
 
