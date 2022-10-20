@@ -1,5 +1,6 @@
 package com.example.mymarketplaceapp.fragments;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +49,13 @@ public class PersonFragment extends Fragment {
 
         Bundle bundle = getArguments();
         userSession = bundle.getParcelable("userSession");
+
+        // display avatar
+        String avatar_name = "avatar_" + userSession.getUser().getUid();
+        int avatarId = getResources().getIdentifier(avatar_name,"drawable", getContext().getPackageName());
+        ImageView avatar = (ImageView) view.findViewById(R.id.iv_person_avatar);
+        if(avatarId!=0)
+            avatar.setImageDrawable(getResources().getDrawable(avatarId));
 
         TextView textView = (TextView) view.findViewById(R.id.tv_person_hello);
         textView.setText("Hello, "+userSession.getUser().getUsername());
