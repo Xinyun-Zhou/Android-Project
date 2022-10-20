@@ -2,8 +2,8 @@ package com.example.mymarketplaceapp.models;
 
 import android.content.Context;
 
-import com.example.mymarketplaceapp.utils.ContextUtil;
 import com.example.mymarketplaceapp.utils.AVLTree;
+import com.example.mymarketplaceapp.utils.ContextUtil;
 import com.example.mymarketplaceapp.utils.Query;
 import com.google.gson.Gson;
 
@@ -21,10 +21,8 @@ import java.util.List;
  */
 public class ItemDao {
     private static ItemDao instance;
-    private static List<Item> itemList;
 
     private ItemDao() {
-        itemList = getAllItems();
     }
 
     public static ItemDao getInstance() {
@@ -34,16 +32,9 @@ public class ItemDao {
         return instance;
     }
 
-    public List<Item> getItemList(){
-        if (itemList == null){
-            itemList = getAllItems();
-        }
-        return itemList;
-    }
-
     public List<Item> getAllItems() {
         Context context = ContextUtil.getInstance();
-        itemList = new ArrayList<>();
+        List<Item> itemList = new ArrayList<>();
         Item[] itemArray;
 
         InputStream inputStream;
@@ -91,7 +82,7 @@ public class ItemDao {
     }
 
     public List<Item> getCategoryItems(Category category) {
-        List<Item> itemList = getItemList();
+        List<Item> itemList = getAllItems();
         List<Item> selectedItemList = new ArrayList<>();
 
         for (Item item : itemList)
@@ -158,7 +149,7 @@ public class ItemDao {
     }
 
     public List<Item> search(Query query) {
-        List<Item> fullItemList = getItemList();
+        List<Item> fullItemList = getAllItems();
         List<Item> selectedItemList = new ArrayList<>();
 
 

@@ -1,8 +1,6 @@
-package com.example.mymarketplaceapp.Utils;
+package com.example.mymarketplaceapp.utils;
 
 import android.app.Application;
-
-import com.example.mymarketplaceapp.models.UserDao;
 
 /**
  * Get Context in models

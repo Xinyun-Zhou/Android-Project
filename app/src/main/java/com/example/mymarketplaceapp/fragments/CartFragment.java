@@ -76,7 +76,7 @@ public class CartFragment extends Fragment {
 //        itemRequired = new ArrayList<>();
         itemListToShow = new ArrayList<>();
 
-        itemList = ItemDao.getInstance().getAllItems();
+        itemList = ItemDao.getInstance().getItemList();
         for (Item item : itemList){
             for (CartItem cartItem : userSession.getUser().getCart()){
                 if (item.getId() == cartItem.getCartItemId()){

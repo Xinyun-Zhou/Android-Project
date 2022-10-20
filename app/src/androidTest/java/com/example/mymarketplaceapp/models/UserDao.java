@@ -2,9 +2,7 @@ package com.example.mymarketplaceapp.models;
 
 import android.content.Context;
 
-import com.example.mymarketplaceapp.utils.ContextUtil;
-import com.example.mymarketplaceapp.utils.AVLTree;
-import com.example.mymarketplaceapp.utils.Tree;
+import com.example.mymarketplaceapp.models.UserDaoInterface;
 import com.google.gson.Gson;
 
 import java.io.IOException;

@@ -48,7 +48,7 @@ public class Parser {
         Token criteria = parseCriteria();
         filter.add(criteria);
 
-        if(tokenizer.hasNext())
+        if (tokenizer.hasNext())
             parseFilter(filter);
 
         return;

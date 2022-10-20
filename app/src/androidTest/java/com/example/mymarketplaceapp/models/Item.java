@@ -1,5 +1,7 @@
 package com.example.mymarketplaceapp.models;
 
+import com.example.mymarketplaceapp.models.Category;
+
 /**
  * Item
  *
