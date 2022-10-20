@@ -16,6 +16,9 @@ import java.util.List;
 
 /**
  * Item Data Access Object
+ * Read item data from json
+ * Generate item list and item AVL tree
+ * Search items based on query
  *
  * @author u7366711 Yuxuan Zhao
  */
@@ -34,6 +37,7 @@ public class ItemDao {
         return instance;
     }
 
+<<<<<<< HEAD
     public List<Item> getItemList(){
         if (itemList == null){
             itemList = getAllItems();
@@ -41,6 +45,13 @@ public class ItemDao {
         return itemList;
     }
 
+=======
+    /**
+     * Read and parse item.json
+     *
+     * @return Arraylist of all items
+     */
+>>>>>>> 157124b41a2c3455ac74a86d278d547793d21db7
     public List<Item> getAllItems() {
         Context context = ContextUtil.getInstance();
         itemList = new ArrayList<>();
@@ -61,6 +72,11 @@ public class ItemDao {
         return itemList;
     }
 
+    /**
+     * Read and parse item.json
+     *
+     * @return AVL Tree of all items
+     */
     public AVLTree<Item> getAllItemsAVL() {
         Context context = ContextUtil.getInstance();
         Item[] itemArray;
@@ -90,6 +106,12 @@ public class ItemDao {
         return null;
     }
 
+    /**
+     * Get all items in the given category
+     *
+     * @param category
+     * @return items in the given category
+     */
     public List<Item> getCategoryItems(Category category) {
         List<Item> itemList = getItemList();
         List<Item> selectedItemList = new ArrayList<>();
@@ -101,6 +123,17 @@ public class ItemDao {
         return selectedItemList;
     }
 
+    public Item getItem(int id){
+        return getAllItemsAVL().find(new Item(id)).value;
+    }
+
+    /**
+     * Filter the item list by the category in the query
+     *
+     * @param itemList
+     * @param category
+     * @return selected item list
+     */
     private List<Item> selectByCategory(List<Item> itemList, Category category) {
         List<Item> selectedItemList = new ArrayList<>();
 
@@ -111,6 +144,13 @@ public class ItemDao {
         return selectedItemList;
     }
 
+    /**
+     * Filter the item list by the username in the query
+     *
+     * @param itemList
+     * @param username
+     * @return selected item list
+     */
     private List<Item> selectByUsername(List<Item> itemList, String username) {
         List<Item> selectedItemList = new ArrayList<>();
 
@@ -127,6 +167,13 @@ public class ItemDao {
         return selectedItemList;
     }
 
+    /**
+     * Filter the item list by the minimum price in the query
+     *
+     * @param itemList
+     * @param minPrice
+     * @return selected item list
+     */
     private List<Item> selectByMinPrice(List<Item> itemList, double minPrice) {
         List<Item> selectedItemList = new ArrayList<>();
 
@@ -137,6 +184,13 @@ public class ItemDao {
         return selectedItemList;
     }
 
+    /**
+     * Filter the item list by the maximum price in the query
+     *
+     * @param itemList
+     * @param maxPrice
+     * @return selected item list
+     */
     private List<Item> selectByMaxPrice(List<Item> itemList, double maxPrice) {
         List<Item> selectedItemList = new ArrayList<>();
 
@@ -147,6 +201,13 @@ public class ItemDao {
         return selectedItemList;
     }
 
+    /**
+     * Filter the item list by the description in the query
+     *
+     * @param itemList
+     * @param description
+     * @return selected item list
+     */
     private List<Item> selectByDescription(List<Item> itemList, String description) {
         List<Item> selectedItemList = new ArrayList<>();
 
@@ -157,6 +218,12 @@ public class ItemDao {
         return selectedItemList;
     }
 
+    /**
+     * Search for items matching the criteria based on Query
+     *
+     * @param query
+     * @return list of items matching the criteria
+     */
     public List<Item> search(Query query) {
         List<Item> fullItemList = getItemList();
         List<Item> selectedItemList = new ArrayList<>();

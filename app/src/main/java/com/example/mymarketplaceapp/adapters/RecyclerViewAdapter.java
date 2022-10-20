@@ -24,14 +24,18 @@ import java.util.List;
 
 /**
  * Recycler View Adapter
+ * Implement the recycler views for shopping cart and item list
  *
  * @author u7366711 Yuxuan Zhao, u7326123 Rita Zhou
  */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
+    private final RecyclerViewInterface recyclerViewInterface;
+
     Context context;
     List<Item> itemList;
     boolean hasQuantity;
 
+<<<<<<< HEAD
     UserSession userSession;
 
     public RecyclerViewAdapter(Context context, List<Item> itemList, boolean hasQuantity, UserSession userSession) {
@@ -39,6 +43,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.itemList = itemList;
         this.hasQuantity = hasQuantity;
         this.userSession = userSession;
+=======
+    public RecyclerViewAdapter(Context context, List<Item> itemList, boolean hasQuantity, RecyclerViewInterface recyclerViewInterface) {
+        this.context = context;
+        this.itemList = itemList;
+        this.hasQuantity = hasQuantity;
+        this.recyclerViewInterface = recyclerViewInterface;
+>>>>>>> 157124b41a2c3455ac74a86d278d547793d21db7
     }
 
     @NonNull
@@ -47,12 +58,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.recycler_view_row, parent, false);
 
-        return new RecyclerViewAdapter.MyViewHolder(view);
+        return new RecyclerViewAdapter.MyViewHolder(view, recyclerViewInterface);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.MyViewHolder holder, int position) {
         holder.nameTextView.setText(itemList.get(position).getName());
+        // price to two decimal places
         holder.priceTextView.setText("$ " + String.format("%.2f", itemList.get(position).getPrice()));
 
         holder.quantityTextView.setVisibility(View.VISIBLE);
@@ -147,7 +159,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView nameTextView, priceTextView, quantityTextView;
         ImageButton btMinus, btPlus;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
             super(itemView);
 
             imageView = (ImageView) itemView.findViewById(R.id.iv_rvr);
@@ -155,8 +167,23 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             priceTextView = (TextView) itemView.findViewById(R.id.tv_rvr_price);
             quantityTextView = (TextView) itemView.findViewById(R.id.tv_rvr_quantity);
 
+<<<<<<< HEAD
             btMinus = itemView.findViewById(R.id.btn_minus_item);
             btPlus = itemView.findViewById(R.id.btn_plus_item);
+=======
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (recyclerViewInterface != null) {
+                        int position = getAdapterPosition();
+
+                        if (position != RecyclerView.NO_POSITION) {
+                            recyclerViewInterface.onItemClick(position);
+                        }
+                    }
+                }
+            });
+>>>>>>> 157124b41a2c3455ac74a86d278d547793d21db7
         }
     }
 }

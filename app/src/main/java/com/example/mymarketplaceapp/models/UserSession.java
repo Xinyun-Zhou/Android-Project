@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 /**
  * User Session
+ * User Session defaults to NoSessionState and changes to SessionState after successful login
  *
  * @author u7366711 Yuxuan Zhao
  */

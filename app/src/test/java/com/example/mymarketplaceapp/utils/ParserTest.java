@@ -5,6 +5,12 @@ import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.Assert.*;
 
+
+/**
+ * Unit tests for the Parser class
+ *
+ * @author u7366711 Yuxuan Zhao
+ */
 public class ParserTest extends TestCase {
     private static Tokenizer tokenizer;
 
