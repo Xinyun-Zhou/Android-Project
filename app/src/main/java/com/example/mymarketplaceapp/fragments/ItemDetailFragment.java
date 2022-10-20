@@ -14,13 +14,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mymarketplaceapp.R;
+import com.example.mymarketplaceapp.models.CartItem;
 import com.example.mymarketplaceapp.models.Item;
 import com.example.mymarketplaceapp.models.ItemDao;
-import com.example.mymarketplaceapp.models.User;
 import com.example.mymarketplaceapp.models.UserDao;
 import com.example.mymarketplaceapp.models.UserSession;
-import com.example.mymarketplaceapp.utils.Token;
-import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.List;
 
 
 public class ItemDetailFragment extends Fragment {
@@ -59,6 +59,9 @@ public class ItemDetailFragment extends Fragment {
 
         Button chatButton = view.findViewById(R.id.bt_item_detail_contact);
         chatButton.setOnClickListener(chatOnClickListener);
+
+        Button addButton = view.findViewById(R.id.bt_item_detail_add);
+        addButton.setOnClickListener(addOnClickListener);
     }
 
     private View.OnClickListener chatOnClickListener = new View.OnClickListener() {
@@ -84,7 +87,24 @@ public class ItemDetailFragment extends Fragment {
     private View.OnClickListener addOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
+            if (userSession.getUser() == null) {
+                LoginNotificationFragment loginNotificationFragment = new LoginNotificationFragment();
+                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.fragmentContainer, loginNotificationFragment).commit();
+            }else if (item.getQuantity() == 0){
+                Toast.makeText(getContext(), "This item is out of stock", Toast.LENGTH_LONG).show();
+            }else if (item.getSellerUid() == userSession.getUser().getUid()){
+                Toast.makeText(getContext(), "You can't buy your own selling stuff", Toast.LENGTH_LONG).show();
+            } else {
+                List<Integer> cartIdList = UserDao.getInstance().cartItemsId(userSession.getUser().getUsername());
+                if (cartIdList.contains(item.getId())) {
+                    Toast.makeText(getContext(), "This item is already in your cart", Toast.LENGTH_LONG).show();
+                } else {
+                    CartItem newCartItem = new CartItem(item.getId(), 1);
+                    List<CartItem> cartList = userSession.getUser().getCart();
+                    cartList.add(newCartItem);
+                    userSession.getUser().setCart(cartList);
+                }
+            }
         }
     };
 }

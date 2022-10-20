@@ -118,4 +118,13 @@ public class UserDao implements UserDaoInterface {
         else
             return null;
     }
+
+    public List<Integer> cartItemsId(String username){
+        ArrayList<Integer> itemsId = new ArrayList<>();
+        User currentUser = searchUser(username);
+        for (CartItem cartItem : currentUser.getCart()){
+            itemsId.add(cartItem.getCartItemId());
+        }
+        return itemsId;
+    }
 }
