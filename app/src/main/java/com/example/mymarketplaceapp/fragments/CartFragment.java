@@ -82,7 +82,7 @@ public class CartFragment extends Fragment implements RecyclerViewInterface {
         for (Item item : itemList){
             for (CartItem cartItem : userSession.getUser().getCart()){
                 if (item.getId() == cartItem.getCartItemId()){
-                    Item newItem = item;
+                    Item newItem = new Item(item.getId(),item.getName(),item.getPrice(),item.getQuantity(),item.getSellerUid(),item.getCategory(),item.getDescription());
                     newItem.setQuantity(cartItem.getCartItemQuantity());
                     itemListToShow.add(newItem);
                 }

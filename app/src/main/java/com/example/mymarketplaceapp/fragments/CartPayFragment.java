@@ -60,7 +60,7 @@ public class CartPayFragment extends Fragment {
 
         Bundle bundle = getArguments();
         userSession = bundle.getParcelable("userSession");
-        itemList = ItemDao.getInstance().getAllItems();
+        itemList = ItemDao.getInstance().getItemList();
         int total = 0;
         for (Item item : itemList){
             for (CartItem cartItem : userSession.getUser().getCart()){

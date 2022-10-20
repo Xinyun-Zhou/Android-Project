@@ -17,9 +17,10 @@ import java.util.List;
 /**
  * The Message Adapter
  * Feature: Peer to Peer Messaging
+ *
  * @author u7326123 Rita Zhou
  */
-public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHolder>  {
+public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHolder> {
     public static final int MSG_TYPE_LEFT = 0;
     public static final int MSG_TYPE_RIGHT = 1;
 
@@ -27,7 +28,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     private List<Chat> mChat;
     private String senderID;
 
-    public MessageAdapter(Context mContext, List<Chat> mChat, String sender){
+    public MessageAdapter(Context mContext, List<Chat> mChat, String sender) {
         this.mChat = mChat;
         this.mContext = mContext;
         this.senderID = sender;
@@ -36,6 +37,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     /**
      * show the conversation, the sender's (i.e. current user) message on the right and the
      * receiver's message on the left
+     *
      * @return the message adapter
      */
     @NonNull
@@ -44,7 +46,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         if (viewType == MSG_TYPE_RIGHT) {
             View view = LayoutInflater.from(mContext).inflate(R.layout.chat_item_right, parent, false);
             return new MessageAdapter.ViewHolder(view);
-        } else{
+        } else {
             View view = LayoutInflater.from(mContext).inflate(R.layout.chat_item_left, parent, false);
             return new MessageAdapter.ViewHolder(view);
         }
@@ -61,7 +63,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         return mChat.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView show_message;
 
         public ViewHolder(@NonNull View itemView) {
@@ -73,13 +75,14 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
     /**
      * check the sender and receiver
+     *
      * @return different state of the chat
      */
     @Override
     public int getItemViewType(int position) {
-        if (mChat.get(position).getSender().equals(senderID)){
+        if (mChat.get(position).getSender().equals(senderID)) {
             return MSG_TYPE_RIGHT;
-        } else{
+        } else {
             return MSG_TYPE_LEFT;
         }
     }

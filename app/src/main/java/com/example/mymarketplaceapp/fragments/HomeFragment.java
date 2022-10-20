@@ -128,7 +128,7 @@ public class HomeFragment extends Fragment {
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 // Parse query
                 Query query = parseQuery(v.getText().toString());
-                if(query==null)
+                if (query == null)
                     return false;
 
                 // Check query
