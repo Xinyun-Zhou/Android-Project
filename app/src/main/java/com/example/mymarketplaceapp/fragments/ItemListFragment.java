@@ -60,7 +60,7 @@ public class ItemListFragment extends Fragment implements RecyclerViewInterface 
 
         itemList = query != null ? itemDao.search(query) : itemDao.getCategoryItems(Category.values()[categoryIndex]);
 
-        for (Item item : itemList){
+        for (Item item : itemList) {
             System.out.println(item.getId());
             System.out.println(item.getQuantity());
         }
@@ -90,6 +90,7 @@ public class ItemListFragment extends Fragment implements RecyclerViewInterface 
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
+                // sort by price: low to high
                 case R.id.bt_item_list_price_low:
                     Collections.sort(itemList, new Comparator<Item>() {
                         @Override
@@ -107,6 +108,7 @@ public class ItemListFragment extends Fragment implements RecyclerViewInterface 
                         }
                     });
                     break;
+                // sort by price: high to low
                 case R.id.bt_item_list_price_high:
                     Collections.sort(itemList, new Comparator<Item>() {
                         @Override

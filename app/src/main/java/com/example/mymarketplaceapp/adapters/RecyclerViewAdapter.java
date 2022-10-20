@@ -110,30 +110,30 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
     }
 
-    private void minusCartItem(MyViewHolder holder, Item getItem){
+    private void minusCartItem(MyViewHolder holder, Item getItem) {
         List<Item> allItem = ItemDao.getInstance().getAllItems();
 
-        for (Item item : allItem){
-            if (item.getId() == getItem.getId()){
+        for (Item item : allItem) {
+            if (item.getId() == getItem.getId()) {
                 int getStockForItem = item.getQuantity();
-                for (CartItem cartItem : userSession.getUser().getCart()){
+                for (CartItem cartItem : userSession.getUser().getCart()) {
                     if (cartItem.getCartItemId() == getItem.getId()) {
                         if (getItem.getQuantity() == 0) {
                             Toast.makeText(context, "Please choose a number more than 0", Toast.LENGTH_LONG).show();
-                        }else if (getStockForItem < getItem.getQuantity()){
+                        } else if (getStockForItem < getItem.getQuantity()) {
                             getItem.setQuantity(getStockForItem);
                             cartItem.setCartItemQuantity(getStockForItem);
-                            holder.quantityTextView.setText(cartItem.getCartItemQuantity()+"");
+                            holder.quantityTextView.setText(cartItem.getCartItemQuantity() + "");
                             Toast.makeText(context, "Stock not enough", Toast.LENGTH_LONG).show();
-                        }else if (getStockForItem == 0){
+                        } else if (getStockForItem == 0) {
                             getItem.setQuantity(0);
                             cartItem.setCartItemQuantity(0);
-                            holder.quantityTextView.setText(cartItem.getCartItemQuantity()+"");
+                            holder.quantityTextView.setText(cartItem.getCartItemQuantity() + "");
                             Toast.makeText(context, "This item is out of stock", Toast.LENGTH_LONG).show();
-                        } else{
+                        } else {
                             getItem.setQuantity(getItem.getQuantity() - 1);
                             cartItem.setCartItemQuantity(getItem.getQuantity());
-                            holder.quantityTextView.setText(cartItem.getCartItemQuantity()+"");
+                            holder.quantityTextView.setText(cartItem.getCartItemQuantity() + "");
                         }
                     }
                 }

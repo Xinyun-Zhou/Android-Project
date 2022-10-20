@@ -103,6 +103,11 @@ public class Query implements Parcelable {
         return null;
     }
 
+    /**
+     * Check whether query is valid
+     *
+     * @return error message
+     */
     public String checkQuery() {
         if (itemName == "")
             return "Invalid query";
