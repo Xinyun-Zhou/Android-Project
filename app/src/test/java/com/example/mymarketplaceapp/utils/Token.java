@@ -2,6 +2,11 @@ package com.example.mymarketplaceapp.utils;
 
 import java.util.Objects;
 
+/**
+ * Token
+ *
+ * @author u7366711 Yuxuan Zhao
+ */
 public class Token {
 
     public enum Type {ITEM_NAME, CATEGORY, USERNAME, MIN_PRICE, MAX_PRICE, DESCRIPTION}

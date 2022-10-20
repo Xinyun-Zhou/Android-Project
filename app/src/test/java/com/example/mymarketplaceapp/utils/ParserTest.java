@@ -26,7 +26,7 @@ public class ParserTest extends TestCase {
         tokenizer = new Tokenizer("uPhone #ELECTRONICS");
         Query query = new Parser(tokenizer).parseQuery();
         assertEquals("uPhone",query.getItemName());
-        assertEquals("ELECTRONICS",query.getFilter().get(0).getToken());
+        assertEquals("ELECTRONICS",query.getCategory());
     }
 
     @Test
@@ -34,8 +34,8 @@ public class ParserTest extends TestCase {
         tokenizer = new Tokenizer("uPhone #ELECTRONICS @JB Wi-Fi");
         Query query = new Parser(tokenizer).parseQuery();
         assertEquals("uPhone",query.getItemName());
-        assertEquals("ELECTRONICS",query.getFilter().get(0).getToken());
-        assertEquals("JB Wi-Fi",query.getFilter().get(1).getToken());
+        assertEquals("ELECTRONICS",query.getCategory());
+        assertEquals("JB Wi-Fi",query.getUsername());
     }
 
     @Test
@@ -43,10 +43,10 @@ public class ParserTest extends TestCase {
         tokenizer = new Tokenizer("uPhone #ELECTRONICS @JB Wi-Fi >1024 <2048 ^bullet-proof");
         Query query = new Parser(tokenizer).parseQuery();
         assertEquals("uPhone",query.getItemName());
-        assertEquals("ELECTRONICS",query.getFilter().get(0).getToken());
-        assertEquals("JB Wi-Fi",query.getFilter().get(1).getToken());
-        assertEquals("1024",query.getFilter().get(2).getToken());
-        assertEquals("2048",query.getFilter().get(3).getToken());
-        assertEquals("bullet-proof",query.getFilter().get(4).getToken());
+        assertEquals("ELECTRONICS",query.getCategory());
+        assertEquals("JB Wi-Fi",query.getItemName());
+        assertEquals("1024",query.getMinPrice());
+        assertEquals("2048",query.getMaxPrice());
+        assertEquals("bullet-proof",query.getDescription());
     }
 }

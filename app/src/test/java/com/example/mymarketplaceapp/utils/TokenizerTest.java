@@ -33,7 +33,7 @@ public class TokenizerTest extends TestCase {
     public void testUserNameToken() {
         tokenizer = new Tokenizer("@JB Wi-Fi >1024 <2048 ^bullet-proof");
 
-        Assert.assertEquals("wrong token type", Token.Type.USER_NAME, tokenizer.current().getType());
+        Assert.assertEquals("wrong token type", Token.Type.USERNAME, tokenizer.current().getType());
         Assert.assertEquals("wrong token value", "JB Wi-Fi", tokenizer.current().getToken());
     }
 
