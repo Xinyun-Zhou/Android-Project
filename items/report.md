@@ -206,7 +206,11 @@ Advantages:
 
 **Other**
 
-*[What other design decisions have you made which you feel are relevant? Feel free to separate these into their own subheadings.]*
+We are very hesitant about using Firebase or using a local database (JSON). Finally, we decided to store the user and item in the JSON file and store the messages in Firebase. We made this decision because we define some values of integers and doubles in the User Class and Item Class at the start of our project. In particular, we set the User uid and the Item id as integers. These two values are the primary key that we often use. This leads us to use Integer.parseInt() or String.valueOf() frequently if we are using Firebase. However, if we use a JSON file, we can use [gson](https://github.com/google/gson) to read data. So we decide to use JSON to store the data of the Item and the User. We decided to use Firebase to store messages because our teammate Rita used Firebase to read and store data when she first implemented the functionality of messages. And the message is independent of other functions, so we don't need to convert between String and Integer many times. Thus, we chose to use Firebase to save the message.
+
+We draw a [diagram](./COMP21006442_GROUP_PROJECT_PLANNING.pdf) for how our app looks like and the connection between pages. Comparing what we have for the app, we can say that out final product is different with our planning. 
+
+The biggest reason for us to change our plan is we don’t have enough time to implement the app that we planned. We planning to have a selling page, but we realise that we won’t have enough to implement the features, so we decide to make the selling page to be a page showing the order. We give up the register as well as we realize that the register is not compulsory for the login feature. We decide to remove the login button on the page that tells the user should log in. Because the app will clash with icons on the navigation bar. We decide to add one item to the cart and change the quantity on the cart. Because we think that the user should pay on the cart page, and they will change the quantity at that time. 
 
 ## Summary of Known Errors and Bugs
 
