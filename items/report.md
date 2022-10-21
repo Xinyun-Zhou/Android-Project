@@ -215,19 +215,29 @@ The biggest reason for us to change our plan is we don’t have enough time to i
 
 ## Summary of Known Errors and Bugs
 
-*[Where are the known errors and bugs? What consequences might they lead to?]*
+1. Bug 1:
 
-*Here is an example:*
+- Category filtering in search query does not work properly
 
-1. *Bug 1:*
+In [Query.java](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/utils/Query.java#L120)
+``` java
+if (!Arrays.asList(Stream.of(Token.Type.values()).map(Enum::name).toArray(String[]::new)).contains(token.getToken().toUpperCase()))
+   return "Invalid category";
+```
+should be
 
-- *A space bar (' ') in the sign in email will crash the application.*
-- ...
+``` java
+if (!Arrays.asList(Stream.of(Category.values()).map(Enum::name).toArray(String[]::new)).contains(token.getToken().toUpperCase()))
+      return "Invalid category";
+```
 
-2. *Bug 2:*
-3. ...
+`Token.Type.values()` should be `Category.values()`
 
-*List all the known errors and bugs here. If we find bugs/errors that your team does not know of, it shows that your testing is not thorough.*
+2. Bug 2:
+
+- After the item’s stock becomes to 0 after the user’s payment, the user still be able to add the item to the cart.
+
+- Also, it will not check the duplication in the cart.
 
 ## Testing Summary
 **Feature-oriented**
