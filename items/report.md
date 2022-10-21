@@ -264,12 +264,8 @@ Feature Category: Firebase Integration <br>
 
 ## Team Meetings
 
-*Here is an example (you could start numbering your meetings from 1):*
-
-- *[Team Meeting 0](./meeting0.md)*
-- ...
-
-* Link to the minutes of your meetings as above. There must be at least 4 team meetings. 
-Note that you must commit your minute meetings shortly after your meeting has taken place (e.g., within 24h), otherwise your meeting minute will not be accepted.
-Uour meetings should also have a reasonable date span across Week 6 to 11.*
- 
+*[Team Meeting 1](./06_09_2022_Meeting_Minutes.md)*
+*[Team Meeting 2](./15_10_2022_Meeting_Minutes.md)*
+*[Team Meeting 3](./17_10_2022_Meeting_Minutes.md)*
+*[Team Meeting 4](./19_10_2022_Meeting_Minutes.md)*
+*[Team Meeting 5](./20_10_2022_Meeting_Minutes.md)*
