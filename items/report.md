@@ -116,8 +116,9 @@ U7366711, Yuxuan Zhao, I contribute % of the project. Here are my contributions:
 
 ## Application UML
 
-![ClassDiagramExample](./images/ClassDiagramExample.png) <br>
-*[Replace the above with a class diagram. You can look at how we have linked an image here as an example of how you can do it too.]*
+![UML](./images/uml.png) <br>
+
+[UML Class Diagram @smartdraw](https://cloud.smartdraw.com/share.aspx/?pubDocShare=4D5A08F649B156CCAA852F5A988AD8839F3)
 
 ## Application Design and Decisions
 
