@@ -284,28 +284,126 @@ We are using the item.json to test the item list page and the item detail page i
 
 ## Implemented Features
 
-*[What features have you implemented?]*
+Basic App feature:
+1.	Feature 1: Users must be able to log in (not necessarily sign up). (easy)
+   - (Code implementation) Class LoginFragment 
+   - (Code implementation) Class UserSession, methods login(), changeState()
+   - (Code implementation) Class UserState 
+   - (Code implementation) Class NoSessionState 
+   - (Code implementation) Class UserDao, methods getAllUsers()
+   - (UI design) fragment_login.xml
+	- Related Feature: Feature 3
+   - Design Pattern use: DAO, Singleton, State (see detail in Application Design and Decisions)
+   - Description: This feature can identify if the user using a correct username and password to login. If the user is login successfully, the user will be able to go to the person page and they can find their personal detail. If the user login fails, then the user will get message to telling them they are using a wrong username or password. The user can only view their cart and order list in their login state.
 
-*Here are some examples:*
+2.	Feature 2: There must be data file(s) with at least 2,500 valid data instances. The data files must be used to feed your app, simulating a data stream. For example, every x seconds, a new item is read from a file. An item can be an action (e.g., a new item is posted by a store; items are removed from stock; items are added to a watchlist; items/stores are rated, etc). (easy)
+   - (Data) item.json
+   - (Data) user.json
+   - (Data) Firebase
+   - Related Feature: Feature 12
+   - Description: These data are all use for this app. The item.json is using to store the detail of all items. The user.json is using to store the detail of users. And the Firebase is using to store the message between two users. The item.json containing 2500 valid data instances. In peer-to-peer feature (Feature 12), the user can send the message to different user. The message will be added into the Firebase.
+   - Question: does add into cart and change quantity of item can be written here?
 
-Feature Category: Privacy <br>
-*Implemented features:*
-1. Feature 1: **Users may ... . (easy)**
-   * Class X, methods Z, Y, Lines of code: 10-100
-   * Class Y, methods K, L, M, Lines of code: 35-150
-   * Your description: ...
-<br>
-2. Feature 2: **A user can only ... . (medium)**
-<br>
+3.	Feature 3: Users must be able to load data/information (from the data file(s) or Firebase) and visualise it (e.g., a list of products or the last shopping activities of a user). (medium)
+   - (Data) item.json
+   - (Data) user.json
+   - (Data) Firebase
+   - (Code implementation) Class CartFragment, line 76
+   - (Code implementation) Class CartPayFragment, line 60, 119, 120
+   - (Code implementation) Class ItemListFragment, line 59, 61, 
+   - (Code implementation) Class MessageFragment, line 94, 97, Method sendMessage(), Method readMessage()
+   - (Code implementation) Class CartItem
+   - (Code implementation) Class Chat
+   - (Code implementation) Class Item
+   - (Code implementation) Class ItemDao
+   - (Code implementation) Class User
+   - (Code implementation) Class UserDao
+   - (UI design) fragment_cart.xml
+   - (UI design) fragment_item_list.xml
+   - (UI design) fragment_cart_pay.xml
+   - (UI design) fragment_item_list.xml
+   - (UI design) fragment_message.xml
+   - Related Feature: Feature 1
+   - Design Pattern: DAO, Singleton
+   - Data structure?
+   - Description: In the login feature (Feature 1), the app will load the data in the user.json by using the DAO and Singleton, then the program will comparing the input and data to check if the user is using the correct username and password. The user can visualise it by knowing if the user accesses the personal detail’s page successfully. In the cart fragment and item list fragment, the program will load the data from the item.json. The user can visualise it by viewing the item in item list and the item in cart list. Also, the app will load the data from the Firebase and visualize it on the message fragment. The user’s detail and item’s detail will pass through pages and visualise in the other fragment such as order fragment, item detail fragment, person fragment... 
 
-Feature Category: Firebase Integration <br>
-*Implemented features:* <br>
-1. **Use Firebase to implement user Authentication/Authorisation. (easy)**
-   * Class A: methods A, B, C, lines of code: whole file
-   * …
+4.	Feature 4: Users must be able to search for information on your app. (medium)
+   - (Code implementation) Class ItemListFragment, line 61
+   - (Code implementation) Class HomeFragment, searchOnEditorActionListener 
+   - (Code Implementation) Class ItemDao
+   - (Code Implementation) Class Parser
+   - (Code Implementation) Class Query
+   - (Code Implementation) Class Token
+   - (Code Implementation) Class Tokenizer
+   - (UI design) fragment_home.xml
+   - (UI design) fragment_item_list.xml
+   - Related Feature: Feature 3, Feature 5 
+   - Description: The user can search by using the searching bar on the home fragment and item list fragment. Using the tokenizer and parser to search the item and list all searched items in a list. (The detail of tokenizer and parser please see it in Application Design and Decisions)
+   - Data structure?
+   - Design Pattern: DAO, Singleton (See detail in Application Design and Decisions)
 
-*List all features you have completed in their separate categories with their difficulty classification. If they are features that are suggested and approved, please state this somewhere as well.*
+**Search-related feature:**
 
+1.	Feature 5: Search functionality can handle partially valid and invalid search queries. (medium)
+   - (Code implementation) Class HomeFragment, Method parseQuery()
+   - (UI design) fragment_hom.xml
+   - Related Feature: Feature 3, Feature 4
+   - Description: When the user type in an invalid searching item, the user would be able to get a Toast to telling the user’s input is invalid.
+
+2.	Feature 6: Sort a list of products returned from a search based on price, popularity, rating, availability, etc. (easy)
+   - (Code implementation) Class ItemListFragment, line 76-79, line 88-134
+   - (UI design) fragment_item_list.xml
+   - Related Feature: Feature 3
+   - Description: The user can see the items sorted in the price. The price from high to low or the price from low to high.
+
+3.	Feature 7: Filter a list of products returned from a search based on their categories (e.g., kids, adults, kitchen, bedroom, etc.) (easy)
+   - (Code implementation) Class HomeFragment
+   - (Code implementation) Class itemListFragment
+   - (UI design) fragment_item_list.xml
+   - (UI design) fragment_home.xml
+   - Related Feature: Feature 3
+   - Description: In the main page, the user can select the category they would like to view, and they will jump up to the item list page containing the items of the selected category.
+
+**Greater Data Usage, Handlling and Sophistication:**
+
+1.	Feature 8: User profile activity containing a media file (image, animation (e.g. gif), video). (easy)
+   - (Code implementation) Class PersonFragment, line 50-54
+   - (UI design) fragement_person.xml
+   - Related Feature: Feature 3
+   - Description: The user can visualise their profile photo on the person fragment
+
+**User Interacivity:**
+1.	Feature 9: The ability to micro-interact with items in your app (e.g. add to watchlist/add to cart/like an item/report an item/add reviews (stars)) [stored in-memory]. (easy)
+   - (Coding implementation) Class ItemDetailFragment, line 110-150
+   - (Coding implementation) Class CartFragment
+   - (UI design) fragment_cart.xml
+   - (UI design) fragment_item_detail.xml
+   - Related Feature: Feature 3
+   - Description: The user can add the item by click the add button on the item detail page. The user can visualise the item has been adding on the cart page.
+
+**Resource Management:**
+
+1.	Feature 10: Transfer resources from one account to another. Each user/organisation may have the ability to transfer and receive resources from others (e.g., payment from a buyer to a seller, transfer stock items from one seller to another). (easy)
+   - (Coding implementation) Class CartPayFragment, line 92-124
+   - Related Feature: Feature 3
+   - Description: The stock of the item will decrease after the user bought the item. (This can be tested by adding the same item in cart and see the maximum of stock) 
+
+2.	Feature 11: Log transfers. For transparency, all transfers may be logged and reported (textually or graphically). (medium)
+   - (Coding implementation) Class OrderListFragment
+   - (UI design) fragment_order
+   - Related Feature: Feature 3, Feature 10
+   - Description: After the payment finish, the buyer will get a new receipt on the order page shown as “buy”. The seller will get a log on the order page shown as “sell”.
+
+**Peer to Peer Messaging:**
+1.	Feature 12: Provide users with the ability to message each other directly. (hard)
+   - (Coding implementation) Class MessageAdapter
+   - (Coding implementation) Class MessageFragment
+   - (Coding implementation) Chat
+   - (UI design) fragment_message.xml
+   - Related Feature: Feature 3
+   - Description: The user can send message to the seller. Because the messages are stored in the Firebase, so the user can find the chat history with seller. Also, the Seller can reply to the user.
+   
 ## Team Meetings
 
 - [Team Meeting 1](./06_09_2022_Meeting_Minutes.md) (The original document of this minutes was uploaded to the project's [Wiki](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/wikis/Sprint-0), where you can see when it was first uploaded)
