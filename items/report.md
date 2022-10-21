@@ -108,6 +108,12 @@ U7326123, Rita Zhou, I contribute % of the project. Here are my contributions:
 -	(Report writing)
 -	(Slide presentation)
 
+U6659041, Fiona Chu, I contribute % of the project. Here are my contributions:
+-  (Items) 15_10_2022_Meeting_Minutes.md
+-  (Items) 17_10_2022_Meeting_Minutes.md
+-  (Items) 20_10_2022_Meeting_Minutes.md
+-  (Report writing)
+
 ## Conflict Resolution Protocol
 
 [Conflict Resolution Protocol](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/items/protocol.md)
