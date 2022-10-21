@@ -225,18 +225,49 @@ Advantages:
 *List all the known errors and bugs here. If we find bugs/errors that your team does not know of, it shows that your testing is not thorough.*
 
 ## Testing Summary
+**Feature-oriented**
 
-*[What features have you tested? What is your testing coverage?]*
+We tested login feature (Feature 1). We tested by using the correct username and correct password, correct username and incorrect password, incorrect username and random password. We also tested blank input. 
 
-*Here is an example:*
+To test load data feature (Feature 3), we created only 10 data instances in the user.json and item.json files. And we check if all data is loaded to the app. 
 
-- *Number of test cases: ...*
+We tested search feature (Feature 4). 
 
-- *Code coverage: ...*
+We tested search invalid input feature (Feature 5). The invalid input will show up a toast to tell the user that the input is invalid.
 
-- *Types of tests created: ...*
+We tested sorted feature (Feature 6). We checked that the item would sort in price in item list page.
 
-*Please provide some screenshots of your testing summary, showing the achieved testing coverage. Feel free to provide further details on your tests.*
+We tested the feature of classify the items (Feature 7).
+
+We tested when we click the different icons, the item list will show the items in a different category.
+
+We tested the user profile image feature (Feature 8). We tested that every user has a different profile photo.
+
+We tested the add to cart feature (Feature 9). We tested after we click the add button on the item detail page, the item will show on the cart. We tested add the item which is already in cart will show a toast to tell the user that this action is fail. We tested the toast will show to user if the item is out of stock.
+
+We tested transfer the resources (Feature 10). We tested the stock of item will decrease after the item is sold. (To find the maximum of stock, you can add the item to the cart and click the plus button until the toast show)
+We tested log transfer (Feature 11). After the payment finish, the buyer will get a new receipt on the order page shown as “buy”. The seller will get a log on the order page shown as “sell”.
+
+We tested peer-to-peer feature (Feature 12). We tested the sending message and reading message. We login to the user account called ‘admin’ and send a message to ‘comp2100@anu.au’. We checked the message is send successfully to the ‘comp2100@anu.au’. The message should place on the right-hand side of view. We checked the Firebase to make sure that the message is uploaded. Then we logout of the ‘admin’ account and login to the ‘comp2100@anu.au’. We checked that we could receive the message from the ‘admin’. And the message from ‘admin’ will be shown on the left-hand side of view. 
+
+**Other**
+In our local database (user.json and item.json), we set up some test cases to help us test our app is working correctly.
+
+We are using the user.json to test the cart page is working correctly. 
+
+- We tested if the cart page is work when the user doesn’t have anything in cart (user uid=2). 
+- We tested if the user would show their own cart.
+- We tested the view of item list looks good in the cart page.
+- We tested if the different user could have the same item with different quantity in the cart (user uid=0 and user uid=3). 
+- We tested if the user can add the item with same name and same quantity but different id in the cart (user uid=4).
+- We tested if the payment in cart will success if the user has an item is out of stock (user uid=5).
+
+We are using the item.json to test the item list page and the item detail page is working correctly. 
+
+- We tested the view of itme list looks good.
+- We tested the item detail page is showing the correct item’s detail. 
+- We tested the item can’t add into cart if this item is out of stock. We tested the item can show a correct detail even if they are using the same name and same seller but different id (item id=0, id=1). 
+- We tested the item with same name, but the different seller and different id can be show on the item list. We tested if the item with stock of 0 can show on the item list.
 
 ## Implemented Features
 
