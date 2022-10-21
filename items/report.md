@@ -80,21 +80,23 @@ U7366711, Yuxuan Zhao, I contribute % of the project. Here are my contributions:
 
 ## Application Description
 
-Target Users: 
+Our marketplace app is a consumer-to-consumer based platform targeting individuals who want to sell their personal items quickly and simply. As a buyer, our app allows users to search and filter listed items, buy multiple items at once with a cart, create a user account to save their information, and facilitates the payment process by confirming transactions and providing receipts. As a seller, our app allows user to list items, and provides tools to help with the selling process such as chats between the seller and potential buyers, and notifications for sellers once their items have been sold.     
+
+### Application use cases and examples 
+**Target Users:**
 
 - Those who want an easy way to find second hand items or items from other people being sold online. 
 - Those who wish to sell their personal items quickly and simply. 
 
-  
 
-Example 1: A student wants to buy a second-hand lamp for their room.  
+**Example 1: A student wants to buy a second-hand lamp for their room.**  
 
 1. They open the app and select the ‘Electronics’ category 
 2. They sort by low to high price, as they don’t want to spend too much on the item. 
 3. After looking at the item page and deciding to buy, they add it to their cart. 
 4. The app takes them through the checkout process, confirms their payment and notifies the seller. 
 
-Example 2: Sally wants to sell some clothes that don’t fit her. 
+**Example 2: Sally wants to sell some clothes that don’t fit her.**
 
 1. Sally opens the app and makes an account. 
 2. They list their items. 
@@ -103,12 +105,13 @@ Example 2: Sally wants to sell some clothes that don’t fit her.
 5. The buyer is happy with the measurements and adds the clothes to their cart. 
 6. The buyer pays for the clothes and Sally sends them. 
 
-Example 3: Emily wants to repurchase some snacks from a seller that they liked. 
+**Example 3: Emily wants to repurchase some snacks from a seller that they liked.** 
 
 1. She logs in to her account on the app and goes to her purchase history. 
 1. She quickly finds the snacks that she purchased and adds them to her cart again from their item pages. 
 1. She goes through the checkout process and buys the snacks. 
-1. Example 4: Ashley wants to buy a textbook for her course second-hand. 
+
+**Example 4: Ashley wants to buy a textbook for her course second-hand.**
 1. She searches for the name of the textbook. 
 1. After finding the correct textbook, she adds it to her cart and tries to purchase it. 
 1. Unfortunately, the textbook is very popular and another student has managed to purchase it before she could. 
@@ -215,29 +218,19 @@ The biggest reason for us to change our plan is we don’t have enough time to i
 
 ## Summary of Known Errors and Bugs
 
-1. Bug 1:
+*[Where are the known errors and bugs? What consequences might they lead to?]*
 
-- Category filtering in search query does not work properly
+*Here is an example:*
 
-In [Query.java](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/utils/Query.java#L120)
-``` java
-if (!Arrays.asList(Stream.of(Token.Type.values()).map(Enum::name).toArray(String[]::new)).contains(token.getToken().toUpperCase()))
-   return "Invalid category";
-```
-should be
+1. *Bug 1:*
 
-``` java
-if (!Arrays.asList(Stream.of(Category.values()).map(Enum::name).toArray(String[]::new)).contains(token.getToken().toUpperCase()))
-      return "Invalid category";
-```
+- *A space bar (' ') in the sign in email will crash the application.*
+- ...
 
-`Token.Type.values()` should be `Category.values()`
+2. *Bug 2:*
+3. ...
 
-2. Bug 2:
-
-- After the item’s stock becomes to 0 after the user’s payment, the user still be able to add the item to the cart.
-
-- Also, it will not check the duplication in the cart.
+*List all the known errors and bugs here. If we find bugs/errors that your team does not know of, it shows that your testing is not thorough.*
 
 ## Testing Summary
 **Feature-oriented**
