@@ -80,39 +80,40 @@ U7366711, Yuxuan Zhao, I contribute % of the project. Here are my contributions:
 
 ## Application Description
 
-*[What is your application, what does it do? Include photos or diagrams if necessary]*
+Target Users: 
 
-*Here is a pet specific application example*
+- Those who want an easy way to find second hand items or items from other people being sold online. 
+- Those who wish to sell their personal items quickly and simply. 
 
-*PetBook is a social media application specifically targetting pet owners... it provides... certified practitioners, such as veterians are indicated by a label next to their profile...*
+  
 
-**Application Use Cases and or Examples**
+Example 1: A student wants to buy a second-hand lamp for their room.  
 
-*[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*
+1. They open the app and select the ‘Electronics’ category 
+2. They sort by low to high price, as they don’t want to spend too much on the item. 
+3. After looking at the item page and deciding to buy, they add it to their cart. 
+4. The app takes them through the checkout process, confirms their payment and notifies the seller. 
 
-*Here is a pet training application example*
+Example 2: Sally wants to sell some clothes that don’t fit her. 
 
-*Molly wants to inquiry about her cat, McPurr's recent troublesome behaviour*
-1. *Molly notices that McPurr has been hostile since...*
-2. *She makes a post about... with the tag...*
-3. *Lachlan, a vet, writes a reply to Molly's post...*
-4. ...
-5. *Molly gives Lachlan's reply a 'tick' response*
+1. Sally opens the app and makes an account. 
+2. They list their items. 
+3. A potential buyer is interested but is unsure if the sizing is correct. They message the seller asking for the garment measurements.  
+4. Sally responds with the measurements. 
+5. The buyer is happy with the measurements and adds the clothes to their cart. 
+6. The buyer pays for the clothes and Sally sends them. 
 
-*Here is a map navigation application example*
+Example 3: Emily wants to repurchase some snacks from a seller that they liked. 
 
-*Targets Users: Drivers*
-
-* *Users can use it to navigate in order to reach the destinations.*
-* *Users can learn the traffic conditions*
-* ...
-
-*Target Users: Those who want to find some good restaurants*
-
-* *Users can find nearby restaurants and the application can give recommendations*
-* ...
-
-*List all the use cases in text descriptions or create use case diagrams. Please refer to https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-use-case-diagram/ for use case diagram.*
+1. She logs in to her account on the app and goes to her purchase history. 
+1. She quickly finds the snacks that she purchased and adds them to her cart again from their item pages. 
+1. She goes through the checkout process and buys the snacks. 
+1. Example 4: Ashley wants to buy a textbook for her course second-hand. 
+1. She searches for the name of the textbook. 
+1. After finding the correct textbook, she adds it to her cart and tries to purchase it. 
+1. Unfortunately, the textbook is very popular and another student has managed to purchase it before she could. 
+1. Ashley gets a message from the app that the textbook in her cart has sold out.  
+1. Ashley goes back to searching for her textbook. 
 
 ## Application UML
 
