@@ -73,6 +73,40 @@ U7366711, Yuxuan Zhao, I contribute % of the project. Here are my contributions:
 -	(Report writing)
 -	(Slide presentation)
 
+U7326123, Rita Zhou, I contribute % of the project. Here are my contributions:
+-	(UI design) [chat_item_left.xml](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/res/layout/chat_item_left.xml)
+-	(UI design) [chat_item_right.xml](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/res/layout/chat_item_right.xml)
+-	(UI design) [fragment_cart.xml](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/res/layout/fragment_cart.xml)
+-	(UI design) [fragment_cart_pay.xml](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/res/layout/fragment_cart_pay.xml)
+-	(UI design) [fragment_login_notification.xml](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/res/layout/fragment_login_notification.xml)
+-	(UI design) [fragment_message.xml](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/res/layout/fragment_message.xml)
+-	(UI design) [fragment_person.xml](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/res/layout/fragment_person.xml)
+-	(UI design) [recycler_view_row.xml (from line 58 - 101)](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/res/layout/recycler_view_row.xml)
+-	(Data) Using the Firebase to store and load the messages
+-	(Data) [user.json](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/assets/user.json)
+-	(Data) [item.json](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/assets/item.json)
+-	(Code implementation) [MessageAdapter (all)](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/adapters/MessageAdapter.java)
+-	(Code implementation) [RecyclerViewAdapter: `plusCartItem()`, `minusCartItem()`, some code in `MyViewHolder()` and `onBlindViewHolder()`](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/adapters/RecyclerViewAdapter.java)
+-	(Code implementation) [CartFragment (all)](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/fragments/CartFragment.java)
+-	(Code implementation) [CartPayFragment (all)](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/fragments/CartPayFragment.java)
+-	(Code implementation) [ItemDetailFragment: `chatOnClickListener`, `addOnClickListener`](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/fragments/ItemListFragment.java)
+-	(Code implementation) [LoginNotificationFragment (all)](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/fragments/LoginNotificationFragment.java) 
+-	(Code implementation) [MessageFragment (all)](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/fragments/MessageFragment.java)
+-	(Code implementation) [PersonFragment: `logoutOnClickListener`, some code in `onViewCreated()`](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/fragments/PersonFragment.java)
+-	(Code implementation) [Cart (all)](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/models/Cart.java)
+-	(Code implementation) [CartItem (all)](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/models/CartItem.java)
+-	(Code implementation) [Chat class (all)](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/models/Chat.java)
+-	(Code implementation) [UserSession: `logout()`](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/models/UserSession.java)
+-	(Items) contribute in 06_09_2022_Meeting_Minutes.md
+-	(Items) 19_10_2022_Meeting_Minutes.md
+-	(Items) contribute in plan.md
+-	(Items) contribute in protocol.md
+-	(Items) COMP21006442_GROUP_PROJECT_PLANNING.pdf
+-	(Others) Attend every meeting
+-	(Others) Group check point 1
+-	(Others) Group check point 2
+-	(Report writing)
+-	(Slide presentation)
 
 ## Conflict Resolution Protocol
 
