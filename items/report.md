@@ -167,20 +167,42 @@ U7366711, Yuxuan Zhao, I contribute % of the project. Here are my contributions:
 
 Production Rules:
     
-    <Non-Terminal> ::= <some output>
-    <Non-Terminal> ::= <some output>
+    <query>    ::= <item name> | <item name> <filter>
+    <filter>   ::= <criteria> | <criteria> <filter>
+    <criteria> ::= <category> | <user name> | <minimum price> | <maximum price> | <description>
+    
+Unlike mathematical expressions, the search queries in shopping apps do not require the use of binary operator. Users should be allowed to simply indicate different filter criteria using different symbols. The grammar and symbols should be as intuitive as possible to the users.
 
-*[How do you design the grammar? What are the advantages of your designs?]*
+Location: [Parser](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/utils/Parser.java)
 
-*If there are several grammars, list them all under this section and what they relate to.*
+Example:
+- Original query:`uPhone #ELECTRONICS @JB Wi-Fi >1024 <2048 ^bullet-proof`
+- Meaning: Search in `ELECTRONICS` category for items with `uPhone` in the item name of which the seller is named `JB Wi-Fi`, the price is between `1024` and `2048`, and the description includes `bullet-proof`
+
+Advantages:
+- The grammar can satisfy most of the users' search needs
+- The grammar is very intuitive
+- It is convenient to design a parser for such a grammar
+- The grammar makes it easier to handle illegal input
 
 **Tokenizer and Parsers**
 
-*[Where do you use tokenisers and parsers? How are they built? What are the advantages of the designs?]*
+Location: [Parser](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/utils/Parser.java), [Tokenizer](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/utils/Tokenizer.java), [Token](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/utils/Token.java)
 
-**Surprise Item**
+We use `Parser` to parse the text in search box into `Query`. A successfully parsed `Query` instance consists of a `String itemName` (mandatory) and a `List<Token> filter` (optional). A `filter` consists of several criteria (`Token`). A `Token` instance consists of `String token` and `Type type`.
 
-*[If you implement the surprise item, explain how your solution addresses the surprise task. What decisions do your team make in addressing the problem?]*
+|Token.Type|Symbol|
+-|-
+ITEM_NAME|
+CATEGORY|#
+USERNAME|@
+MIN_PRICE|>
+MAX_PRICE|<
+DESCRIPTION|^
+
+Advantages:
+- Token identifiers are very intuitive to the user and at the same time rarely used in item names and descriptions
+- Parser and Tokenizer are both highly readable, maintainable and extensible
 
 **Other**
 
