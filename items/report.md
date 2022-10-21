@@ -122,33 +122,46 @@ U7366711, Yuxuan Zhao, I contribute % of the project. Here are my contributions:
 
 ## Application Design and Decisions
 
-*Please give clear and concise descriptions for each subsections of this part. It would be better to list all the concrete items for each subsection and give no more than `5` concise, crucial reasons of your design. Here is an example for the subsection `Data Structures`:*
-
-*I used the following data structures in my project:*
-
-1. *LinkedList*
-
-   * *Objective: It is used for storing xxxx for xxx feature.*
-
-   * *Locations: line xxx in XXX.java, ..., etc.*
-
-   * *Reasons:*
-
-     * *It is more efficient than Arraylist for insertion with a time complexity O(1)*
-
-     * *We don't need to access the item by index for this feature*
-
-2. ...
-
-3. ...
-
 **Data Structures**
 
-*[What data structures did your team utilise? Where and why?]*
+1. ArrayList
+   - Objective: It is used for storing small, infrequently accessed data.
+   - Location: [Cart](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/models/Cart.java#L15),  [Query](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/utils/Query.java#L30) etc.
+   - Reasons:
+      - ArrayList is easy to use and reliable
+      - In these features, we do not need to search or sort elements
+
+2. AVL Tree
+   - Objective: It is used for storing items and users.
+   - Location: [UserDAO](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/models/UserDao.java#L79-123),  [ItemDAO](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/models/ItemDao.java#L77-104)
+   - Reasons:
+      - We need to search and sort users and products frequently, and AVL Tree is more efficient than Arraylist
+      - Mobile apps are unlikely to run on hard disk drive, so B-tree has no advantage over AVL tree here
+      - We do not implement the feature of deleting items and users, so Red-Black Tree has little advantage over AVL tree here
+
 
 **Design Patterns**
 
-*[What design patterns did your team utilise? Where and why?]*
+1. DAO (Data Access Object)
+   - Objective: It is used to read data without exposing details of the data storage (`json` or `Firebase`).
+   - Location: [UserDAO](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/models/UserDao.java),  [ItemDAO](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/models/ItemDao.java)
+   - Reasons:
+      - We started by reading data from json, and considering that we would have to implement reading data from Firebase later
+      - We need to decouple the front end from the data source
+
+2. State
+   - Objective: It is used for defining the different state of user, and user will have different action in different state .
+   - Location: [UserSession](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/models/UserSession.java), [UserState](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/models/UserState.java), [SessionState](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/models/SessionState.java), [NoSessionState](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/models/NoSessionState.java)
+   - Reasons:
+      - Using State design pattern, rather than conditional statements, improves the readability of the code
+      - Facilitate the subsequent addition of more account statuses (e.g. `banned` for suspected fraud)
+
+3. Singleton
+   - Objective: It is used to ensure that a class (e.g. `OrderManager`) has just a single instance.
+   - Location: [OrderManager](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/models/OrderManager.java), [UserDAO](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/models/UserDao.java),  [ItemDAO](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/main/java/com/example/mymarketplaceapp/models/ItemDao.java)
+   - Reasons:
+      - To control access to the shared resources (`item.json`,`user.json` and `Firebase` )
+      - Provide a global access point to the `OrderManager` and DAOs
 
 **Grammar(s)**
 
