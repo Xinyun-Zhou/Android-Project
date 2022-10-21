@@ -265,7 +265,11 @@ Feature Category: Firebase Integration <br>
 ## Team Meetings
 
 *[Team Meeting 1](./06_09_2022_Meeting_Minutes.md)*
+
 *[Team Meeting 2](./15_10_2022_Meeting_Minutes.md)*
+
 *[Team Meeting 3](./17_10_2022_Meeting_Minutes.md)*
+
 *[Team Meeting 4](./19_10_2022_Meeting_Minutes.md)*
+
 *[Team Meeting 5](./20_10_2022_Meeting_Minutes.md)*
