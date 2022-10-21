@@ -264,12 +264,8 @@ Feature Category: Firebase Integration <br>
 
 ## Team Meetings
 
-*[Team Meeting 1](./06_09_2022_Meeting_Minutes.md)* (The original document of this minutes was uploaded to the project's [Wiki](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/wikis/Sprint-0), where you can see when it was first uploaded)
-
-*[Team Meeting 2](./15_10_2022_Meeting_Minutes.md)*
-
-*[Team Meeting 3](./17_10_2022_Meeting_Minutes.md)*
-
-*[Team Meeting 4](./19_10_2022_Meeting_Minutes.md)*
-
-*[Team Meeting 5](./20_10_2022_Meeting_Minutes.md)*
+- [Team Meeting 1](./06_09_2022_Meeting_Minutes.md) (The original document of this minutes was uploaded to the project's [Wiki](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/wikis/Sprint-0), where you can see when it was first uploaded)
+- [Team Meeting 2](./15_10_22_Meeting_Minutes.md)
+- [Team Meeting 3](./17_10_22_Meeting_Minutes.md)
+- [Team Meeting 4](./19_10_2022_Meeting_Minutes.md)
+- [Team Meeting 5](./20_10_22_Meeting_Minutes.md)
