@@ -250,7 +250,12 @@ We tested log transfer (Feature 11). After the payment finish, the buyer will ge
 
 We tested peer-to-peer feature (Feature 12). We tested the sending message and reading message. We login to the user account called ‘admin’ and send a message to ‘comp2100@anu.au’. We checked the message is send successfully to the ‘comp2100@anu.au’. The message should place on the right-hand side of view. We checked the Firebase to make sure that the message is uploaded. Then we logout of the ‘admin’ account and login to the ‘comp2100@anu.au’. We checked that we could receive the message from the ‘admin’. And the message from ‘admin’ will be shown on the left-hand side of view. 
 
+**Unit Test**
+
+Given that it is difficult to test Parser and Tokenizer manually, we wrote [TokenizerTest](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/test/java/com/example/mymarketplaceapp/utils/TokenizerTest.java) and [ParserTest](https://gitlab.cecs.anu.edu.au/u7577606/ga-22s2-comp2100-6442/-/blob/main/app/src/test/java/com/example/mymarketplaceapp/utils/ParserTest.java).
+
 **Other**
+
 In our local database (user.json and item.json), we set up some test cases to help us test our app is working correctly.
 
 We are using the user.json to test the cart page is working correctly. 
